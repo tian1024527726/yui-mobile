@@ -1,0 +1,100 @@
+@import "../../../../src/components/style/index.scss";
+@import "./transitions.scss";
+a,
+input,
+div,
+button {
+    -webkit-tap-highlight-color: rgba(255, 0, 0, 0);
+}
+
+html,
+body {
+    height: 100%;
+    background-color: #F5F5F5;
+    #app {
+        height: inherit;
+    }
+}
+
+body {
+    -webkit-font-smoothing: antialiased;
+}
+
+/*解决使用fastclick之后label失效的问题*/
+label > * { pointer-events: none; }
+button > * { pointer-events: none; }
+
+.pullPage{
+  display: flex;
+  flex-direction: column;
+  height: 100%
+}
+.pullScroll{
+  -webkit-box-flex:1;
+  flex: 1;
+  height: calc(100% - 3rem);
+}
+
+.cityinput{
+  background-color: #FFF;
+}
+
+.AppTable{
+  font-size: 13px;
+  margin-bottom: 2rem;
+  tr{
+    display: table-row;
+    vertical-align: inherit;
+    border-color: inherit;
+  }
+  th{
+    font-weight: 600;
+    background: rgb(247, 247, 247);
+  }
+  th,td{
+    text-align: left;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(233, 233, 233);
+    border-image: initial;
+    padding: 8px 16px;
+    white-space: nowrap;
+    color: rgb(92, 107, 119);
+  }
+}
+
+.AppIframe{
+  .mobile-wrapper{
+    position: relative;
+    // float: right;
+    width: 405Px;
+    // margin-right: -405Px;
+    padding: 0 0 0 30Px;
+  }
+  .demo-preview-wrapper{
+    margin: 0 auto;
+  }
+  .url-box{
+    width: 350Px;
+    height: 28Px;
+    line-height: 28Px;
+    color: #fff;
+    background-color: #a2a2a2;
+    margin: 0 auto;
+    border-radius: 4px;
+    white-space: nowrap;
+    overflow-x: scroll;
+    &::-webkit-scrollbar{
+      display: none;
+    }
+  }
+  .demo-preview-header{
+    background: linear-gradient(rgba(55, 55, 55, 0.98), #545456);
+    border-radius: 4px 4px 0 0;
+    text-align: center;
+  }
+  .demo-preview-statbar{
+    height: 20px;
+    margin-bottom: 4px;
+  }
+}

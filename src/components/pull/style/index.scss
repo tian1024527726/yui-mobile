@@ -1,0 +1,211 @@
+/* Variables */
+
+$pullRefresh-backGround-color: $white-ter;
+$pull-bottom-pocket-color: $grey-light;
+$pull-bottom-pocket-font-size: $size-7;
+
+/*  Mixins */
+
+@mixin pull-pocket {
+    position: absolute;
+    left: 0;
+    display: block;
+    visibility: hidden;
+    overflow: hidden;
+    width: 100%;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: $pull-bottom-pocket-color;
+    font-size: $pull-bottom-pocket-font-size;
+}
+
+.pull {
+    @include unselectable;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background-color: $pullRefresh-backGround-color;
+    overflow: hidden;
+    >.scroll-content {
+        position: absolute;
+        z-index: 100;
+        width: 100%;
+        min-height: 100.1%;
+        min-height:calc(100% + .5px);
+        >.pull-bottom-pocket {
+            @include pull-pocket;
+            visibility: visible;
+            position: relative;
+            bottom: 0;
+            height: 40px;
+            >.pull-caption {
+                text-align: center
+            }
+            >.pull-loading {
+                position: relative;
+                width: 20px;
+                height: 20px;
+                margin-right: .5rem;
+                &.pull-loading-rotating {
+                    animation: spinAround 500ms infinite linear;
+                    >.pull-loading-center {
+                        opacity: 0;
+                        transition: none;
+                    }
+                }
+                >.pull-loading-center {
+                    position: absolute;
+                    z-index: 20;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    opacity: 1;
+                    transition: opacity .5s;
+                }
+                >.pull-loading-left {
+                    position: absolute;
+                    z-index: 10;
+                    top: 0;
+                    left: 0;
+                    width: 50%;
+                    height: 100%;
+                    background-color: $pullRefresh-backGround-color;
+                }
+                >.pull-loading-rotate-left {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    transform: rotate(0deg);
+                    >.left {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 50%;
+                        height: 100%;
+                        border: 1px solid #999999;
+                        border-radius: 100% 0 0 100%/50%;
+                        border-right: none;
+                    }
+                }
+                >.pull-loading-rotate-right {
+                    position: absolute;
+                    z-index: 11;
+                    top: 0;
+                    right: 0;
+                    width: 50%;
+                    height: 100%;
+                    background-color: $pullRefresh-backGround-color;
+                    display: none;
+                    transform: rotate(0deg);
+                    transform-origin: left center;
+                    >.right {
+                        position: absolute;
+                        top: 0;
+                        right: 0;
+                        width: 100%;
+                        height: 100%;
+                        border: 1px solid #999999;
+                        border-radius: 0 100% 100% 0/50%;
+                        border-left: none;
+                        overflow: hidden;
+                    }
+                }
+            }
+        }
+        >.pull-top-pocket {
+            @include pull-pocket;
+            top: 0;
+            transform: translateY(-100%);
+            >.pull-loading {
+                position: relative;
+                width: 20px;
+                height: 20px;
+                &.pull-loading-rotating {
+                    animation: spinAround 500ms infinite linear;
+                    >.pull-loading-center {
+                        opacity: 0;
+                        transition: none;
+                    }
+                }
+                >.pull-loading-center {
+                    position: absolute;
+                    z-index: 20;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    opacity: 1;
+                    transition: opacity .5s;
+                }
+                >.pull-loading-left {
+                    position: absolute;
+                    z-index: 10;
+                    top: 0;
+                    left: 0;
+                    width: 50%;
+                    height: 100%;
+                    background-color: $pullRefresh-backGround-color
+                }
+                >.pull-loading-rotate-left {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    transform: rotate(0deg);
+                    >.left {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 50%;
+                        height: 100%;
+                        border: 1px solid #999999;
+                        border-radius: 100% 0 0 100%/50%;
+                        border-right: none;
+                    }
+                }
+                >.pull-loading-rotate-right {
+                    position: absolute;
+                    z-index: 11;
+                    top: 0;
+                    right: 0;
+                    width: 50%;
+                    height: 100%;
+                    background-color: $pullRefresh-backGround-color;
+                    display: none;
+                    transform: rotate(90deg);
+                    transform-origin: left center;
+                    >.right {
+                        position: absolute;
+                        top: 0;
+                        right: 0;
+                        width: 100%;
+                        height: 100%;
+                        border: 1px solid #999999;
+                        border-radius: 0 100% 100% 0/50%;
+                        border-left: none;
+                        overflow: hidden;
+                    }
+                }
+            }
+            >.pull-caption {
+                width: 30%;
+                text-align: center
+            }
+            &.show-pull-top-pocket {
+                visibility: visible !important;
+            }
+        }
+    }
+}
