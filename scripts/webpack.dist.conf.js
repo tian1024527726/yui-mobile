@@ -9,7 +9,7 @@ const utils = require('./utils')
 const isDebug = process.env.NODE_ENV === 'testing'
 
 function _externals() {
-  let dependencies = ['react','classnames','prop-types','better-scroll']
+  let dependencies = ['react','classnames','prop-types','better-scroll','react-dom']
   let externals = {}
   for (let dep of dependencies) {
     externals[dep] = 'commonjs ' + dep
@@ -19,7 +19,7 @@ function _externals() {
 
 module.exports = merge(baseWebpackConfig, {
   entry: {
-    main: ['./src/components/style/index.scss','./src/index.js']
+    main: ['./components/style/index.scss','./components/index.js']
   },
   module: {
     rules: utils.styleLoaders({

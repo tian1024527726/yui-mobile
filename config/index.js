@@ -5,7 +5,7 @@ module.exports = {
   build: {
     index: path.resolve(distPath, 'index.html'),
     assetsSubDirectory: '',
-    assetsPublicPath: '/',
+    assetsPublicPath: './',
     productionSourceMap: true,
     productionGzip: false,
     productionGzipExtensions: ['js', 'css']
@@ -20,8 +20,8 @@ module.exports = {
   },
   paths: {
     dist: distPath,
-    site: path.resolve(`site/${process.env.SITE_TYPE}/src`),
-    ui: path.resolve('src')
+    site: path.resolve('site'),
+    ui: path.resolve('components')
   },
   env: {
     development: require('./dev.env'),

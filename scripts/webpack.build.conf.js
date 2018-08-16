@@ -11,7 +11,7 @@ const isDebug = process.env.NODE_ENV === 'testing'
 
 const clientWebpackConfig = merge(baseWebpackConfig, {
   entry: {
-    app: [`./site/${process.env.SITE_TYPE}/src/index.js`],
+    app: [`./site/index.js`],
     vendor: [
       'es6-promise',
       'babel-polyfill'
@@ -58,9 +58,9 @@ const clientWebpackConfig = merge(baseWebpackConfig, {
     new HtmlWebpackPlugin({
       title: 'OneConnect UI Framework',
       filename: 'index.html',
-      template: `site/${process.env.SITE_TYPE}/src/index.html`,
+      template: 'site/index.html',
       inject: true,
-      favicon: `site/${process.env.SITE_TYPE}/src/favicon.ico`,
+      favicon: 'site/favicon.ico',
       minify: {
         removeComments: true,
         collapseWhitespace: true,

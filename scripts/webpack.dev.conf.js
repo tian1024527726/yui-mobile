@@ -8,7 +8,7 @@ const utils = require('./utils')
 
 const webpackConfig = merge(baseWebpackConfig, {
   entry: {
-    app: [`./site/${process.env.SITE_TYPE}/src/index.js`]
+    app: [`./site/index.js`]
   },
   output: {
     path: config.paths.dist,
@@ -30,9 +30,9 @@ const webpackConfig = merge(baseWebpackConfig, {
     new HtmlWebpackPlugin({
       title: '[DEV] OneConnect UI Framework',
       filename: 'index.html',
-      template: `site/${process.env.SITE_TYPE}/src/index.html`,
+      template: 'site/index.html',
       inject: true,
-      favicon: `site/${process.env.SITE_TYPE}/src/favicon.ico`
+      favicon: 'site/favicon.ico'
     }),
     new FriendlyErrorsPlugin()
   ]

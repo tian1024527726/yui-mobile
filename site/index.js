@@ -4,7 +4,7 @@ import 'babel-polyfill';
 
 import React from 'react'
 import { render } from 'react-dom'
-import createHistory from 'history/createBrowserHistory'
+import createHistory from 'history/createHashHistory'
 import AppContainer from './app'
 
 const history = createHistory()
