@@ -1,15 +1,15 @@
 {
-  "title": "YZT-RUI",
+  "title": "Yzt Rui",
   "gitbook": ">=3.0.0",
   "language": "en",
   "plugins": ["prism", "-highlight", "anchors", "editlink", "github"],
   "pluginsConfig": {
     "editlink": {
-      "base": "https://github.com/tian1024527726",
+      "base": "https://github.com/tian1024527726/yzt-rui/tree/master/docs/",
       "label": "Edit This Page"
     },
     "github": {
-      "url": "https://github.com/tian1024527726"
+      "url": "https://github.com/tian1024527726/yzt-rui"
     }
   },
   "links": {

@@ -11,6 +11,7 @@
     "build": "rimraf dist && cross-env NODE_ENV=production node scripts/build.js",
     "dist": "rimraf dist && cross-env NODE_ENV=production webpack --config scripts/webpack.dist.conf.js",
     "lib": "rimraf lib && babel components --out-dir lib --presets=env,react,stage-2 --ignore 'src/components/style'",
+    "docs": "cd docs && gitbook install && gitbook serve",
     "package": "node scripts/package && rimraf dist",
     "test": "echo lol"
   },

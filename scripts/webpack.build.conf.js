@@ -56,7 +56,7 @@ const clientWebpackConfig = merge(baseWebpackConfig, {
     // you can customize output by editing /index.html
     // see https://github.com/ampedandwired/html-webpack-plugin
     new HtmlWebpackPlugin({
-      title: 'OneConnect UI Framework',
+      title: 'Yzt Rui',
       filename: 'index.html',
       template: 'site/index.html',
       inject: true,

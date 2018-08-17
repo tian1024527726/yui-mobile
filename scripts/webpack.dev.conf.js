@@ -28,7 +28,7 @@ const webpackConfig = merge(baseWebpackConfig, {
     }),
     // https://github.com/ampedandwired/html-webpack-plugin
     new HtmlWebpackPlugin({
-      title: '[DEV] OneConnect UI Framework',
+      title: 'Yzt Rui',
       filename: 'index.html',
       template: 'site/index.html',
       inject: true,
