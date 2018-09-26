@@ -1,11 +1,11 @@
 # 文件选择器 FilePicker
 
-[demo页面](https://zhongantecheng.github.io/zarm/#/uploader)
+[demo页面](https://github.com/tian1024527726/yzt-rui/#/uploader)
 
 ### 引入
 
 ```js
-import { FilePicker } from 'zarm';
+import { FilePicker } from 'yzt-rui';
 ```
 
 ### 代码演示

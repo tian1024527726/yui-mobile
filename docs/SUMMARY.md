@@ -3,7 +3,7 @@
 ## 开发指南
 
 * [快速上手](README.md)
-* [更新日志](https://github.com/tian1024527726/yzt-rui)
+* [更新日志](https://github.com/tian1024527726/yzt-rui/)
 
 ## 组件
 * 导航 Navigation

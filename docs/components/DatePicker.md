@@ -1,11 +1,11 @@
 # 日期选择器 DatePicker & DateSelect
 
-[demo页面](https://zhongantecheng.github.io/zarm/#/datePicker)
+[demo页面](https://github.com/tian1024527726/yzt-rui/#/datePicker)
 
 ### 引入
 
 ```js
-import { DatePicker, DatePickerView, DateSelect } from 'zarm';
+import { DatePicker, DatePickerView, DateSelect } from 'yzt-rui';
 ```
 
 ### 代码演示
@@ -125,7 +125,7 @@ import { DatePicker, DatePickerView, DateSelect } from 'zarm';
 | title | string | '请选择' | | 选择器标题 |
 | cancelText | string | '取消' | | 取消栏文字 |
 | okText | string | '确定' | | 确定栏文字 |
-| onOk | <code>(value?: object) => void</code> | noop | \(value: object\) | 点击确定时触发的回调函数 | 
+| onOk | <code>(value?: object) => void</code> | noop | \(value: object\) | 点击确定时触发的回调函数 |
 | onCancel | <code>() => void</code> | noop | | 点击取消时触发的回调函数 |
 | onMaskClick | <code>() => void</code> | noop | | 点击遮罩层时触发的回调函数 |
 

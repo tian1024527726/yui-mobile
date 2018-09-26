@@ -1,11 +1,11 @@
 # 步进器 Stepper
 
-[demo页面](https://zhongantecheng.github.io/zarm/#/stepper)
+[demo页面](https://github.com/tian1024527726/yzt-rui/#/stepper)
 
 ### 引入
 
 ```js
-import { Stepper } from `zarm`;
+import { Stepper } from 'yzt-rui';
 ```
 
 ### 代码演示

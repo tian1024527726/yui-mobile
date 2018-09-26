@@ -1,11 +1,11 @@
 # 图片轮播 Swipe
 
-[demo页面](https://zhongantecheng.github.io/zarm/#/swipe)
+[demo页面](https://github.com/tian1024527726/yzt-rui/#/swipe)
 
 ### 引入
 
 ```js
-import { Swipe } from 'zarm';
+import { Swipe } from 'yzt-rui';
 ```
 
 ### 代码演示

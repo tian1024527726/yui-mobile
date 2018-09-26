@@ -1,11 +1,11 @@
 # 选择器 Picker & Select
 
-[demo页面](https://zhongantecheng.github.io/zarm/#/picker)
+[demo页面](https://github.com/tian1024527726/yzt-rui/#/picker)
 
 ### 引入
 
 ```js
-import { Picker, PickerView, Select } from 'zarm';
+import { Picker, PickerView, Select } from 'yzt-rui';
 ```
 
 ### 代码演示
@@ -196,7 +196,7 @@ import { Picker, PickerView, Select } from 'zarm';
 | dataSource | object[] | [ ] | | 数据源 |
 | value | string &#124; string[] &#124; number[] |  | | 值 |
 | defaultValue | string &#124; string[] &#124; number[] |  | | 初始值 |
-| valueMember | string | 'value' | | 值字段对应的key 
+| valueMember | string | 'value' | | 值字段对应的key
 | itemRender | func | <code>(data?: object) => data.label</code> | | 单个选项的展示 |
 | disabled | boolean | false | | 是否禁用 |
 | cols | number | | | 级联选择器的级数 |
@@ -228,7 +228,7 @@ import { Picker, PickerView, Select } from 'zarm';
 | dataSource | array | [ ] | | 数据源 |
 | value | array &#124; string |  | | 值 |
 | defaultValue | array &#124; string |  | | 初始值 |
-| valueMember | string | 'value' | | 值字段对应的key 
+| valueMember | string | 'value' | | 值字段对应的key
 | itemRender | func |  | | 控制选项列表显示字段对应的key |
 | disabled | boolean | false | | 是否禁用 |
 | title | string | '请选择' | | 选择器标题 |

@@ -1,11 +1,11 @@
 # 滑动操作 SwipeAction
 
-[demo页面](https://zhongantecheng.github.io/zarm/#/swipe-action)
+[demo页面](https://github.com/tian1024527726/yzt-rui/#/swipe-action)
 
 ### 引入
 
 ```js
-import { SwipeAction } from 'zarm';
+import { SwipeAction } from 'yzt-rui';
 ```
 
 ### 代码演示
@@ -95,7 +95,7 @@ import { SwipeAction } from 'zarm';
 | moveTimeSpan | number | 300 | | 移动时间跨度临界点 |
 | animationDuration | number | 300 | | 动画执行时间，单位：毫秒 |
 | offset | number | 10 | | 回弹偏移的距离 |
-| autoClose | boolean | | | 点击按钮后是否自动关闭 | 
+| autoClose | boolean | | | 点击按钮后是否自动关闭 |
 | disabled | boolean | | | 是否允许滑动 |
 | onOpen | <code>() => void</code> | noop | | 滑开时触发的回调函数 |
 | onClose | <code>() => void</code> | noop | | 关闭时触发的回调函数 |

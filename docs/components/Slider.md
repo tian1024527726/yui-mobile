@@ -1,11 +1,11 @@
 # 滑动输入条 Slider
 
-[demo页面](https://zhongantecheng.github.io/zarm/#/slider)
+[demo页面](https://github.com/tian1024527726/yzt-rui/#/slider)
 
 ### 引入
 
 ```js
-import { Slider } from 'zarm';
+import { Slider } from 'yzt-rui';
 ```
 
 ### 代码演示

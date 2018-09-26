@@ -1,11 +1,11 @@
 # 文本框 Input
 
-[demo页面](https://zhongantecheng.github.io/zarm/#/input)
+[demo页面](https://github.com/tian1024527726/yzt-rui/#/input)
 
 ### 引入
 
 ```js
-import { Input } from 'zarm';
+import { Input } from 'yzt-rui';
 ```
 
 ### 代码演示

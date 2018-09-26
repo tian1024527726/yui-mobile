@@ -1,11 +1,11 @@
 # 复选框 Checkbox
 
-[demo页面](https://zhongantecheng.github.io/zarm/#/checkbox)
+[demo页面](https://github.com/tian1024527726/yzt-rui/#/checkbox)
 
 ### 引入
 
 ```js
-import { Checkbox } from 'zarm';
+import { Checkbox } from 'yzt-rui';
 ```
 
 ### 代码演示

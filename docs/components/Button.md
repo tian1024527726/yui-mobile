@@ -1,11 +1,11 @@
 # 按钮 Button
 
-[demo页面](https://zhongantecheng.github.io/zarm/#/button)
+[demo页面](https://github.com/tian1024527726/yzt-rui/#/button)
 
 ### 引入
 
 ```js
-import { Button } from `zarm`;
+import { Button } from 'yzt-rui';
 ```
 
 ### 代码演示

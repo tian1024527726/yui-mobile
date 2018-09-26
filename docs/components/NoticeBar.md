@@ -1,11 +1,11 @@
 # 通告栏 NoticeBar
 
-[demo页面](https://zhongantecheng.github.io/zarm/#/notice-bar)
+[demo页面](https://github.com/tian1024527726/yzt-rui/#/notice-bar)
 
 ### 引入
 
 ```js
-import { NoticeBar } from 'zarm';
+import { NoticeBar } from 'yzt-rui';
 ```
 
 ### 代码演示

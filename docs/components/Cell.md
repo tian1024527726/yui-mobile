@@ -1,11 +1,11 @@
 # 列表项 Cell
 
-[demo页面](https://zhongantecheng.github.io/zarm/#/cell)
+[demo页面](https://github.com/tian1024527726/yzt-rui/#/cell)
 
 ### 引入
 
 ```js
-import { Cell } from 'zarm';
+import { Cell } from 'yzt-rui';
 ```
 
 ### 代码演示

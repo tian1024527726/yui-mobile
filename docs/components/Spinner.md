@@ -1,11 +1,11 @@
 # 指示器 Spinner
 
-[demo页面](https://zhongantecheng.github.io/zarm/#/spinner)
+[demo页面](https://github.com/tian1024527726/yzt-rui/#/spinner)
 
 ### 引入
 
 ```js
-import { Spinner } from 'zarm';
+import { Spinner } from 'yzt-rui';
 ```
 
 ### 代码演示
@@ -35,7 +35,7 @@ import { Spinner } from 'zarm';
 | :--- | :--- | :--- | :--- | :--- |
 | prefixCls | string | za-stepper | | 类名前缀 |
 | className | string | | | 追加类名 |
-| strokeWidth | number | | | 指示器边框的宽度 |  
+| strokeWidth | number | | | 指示器边框的宽度 |
 | percent | number | | | 初始百分比 |
 | size | string | | 'lg' | 大小 |
 

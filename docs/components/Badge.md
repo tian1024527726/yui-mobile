@@ -1,11 +1,11 @@
 # 徽标 Badge
 
-[demo页面](https://zhongantecheng.github.io/zarm/#/badge)
+[demo页面](c/#/badge)
 
 ### 引入
 
 ```js
-import { Badge } from `zarm`;
+import { Badge } from 'yzt-rui';
 ```
 
 ### 代码演示

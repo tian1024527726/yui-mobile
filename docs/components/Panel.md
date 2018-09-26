@@ -1,11 +1,11 @@
 # 面板 Panel
 
-[demo页面](https://zhongantecheng.github.io/zarm/#/panel)
+[demo页面](https://github.com/tian1024527726/yzt-rui/#/panel)
 
 ### 引入
 
 ```js
-import { Panel } from 'zarm';
+import { Panel } from 'yzt-rui';
 ```
 
 ### 代码演示

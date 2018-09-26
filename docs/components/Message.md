@@ -1,11 +1,11 @@
 # 消息 Message
 
-[demo页面](https://zhongantecheng.github.io/zarm/#/message)
+[demo页面](https://github.com/tian1024527726/yzt-rui/#/message)
 
 ### 引入
 
 ```js
-import { Message } from 'zarm';
+import { Message } from 'yzt-rui';
 ```
 
 ### 代码演示

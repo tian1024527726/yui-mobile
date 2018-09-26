@@ -1,11 +1,11 @@
 # 进度条 Progress
 
-[demo页面](https://zhongantecheng.github.io/zarm/#/progress)
+[demo页面](https://github.com/tian1024527726/yzt-rui/#/progress)
 
 ### 引入
 
 ```js
-import { Progress } from `zarm`;
+import { Progress } from 'yzt-rui';
 ```
 
 ### 代码演示

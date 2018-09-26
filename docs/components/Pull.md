@@ -1,11 +1,11 @@
 # 上拉加载下拉刷新 Pull
 
-[demo页面](https://zhongantecheng.github.io/zarm/#/pull)
+[demo页面](https://github.com/tian1024527726/yzt-rui/#/pull)
 
 ### 引入
 
 ```js
-import { Pull } from 'zarm';
+import { Pull } from 'yzt-rui';
 ```
 
 ### 代码演示

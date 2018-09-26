@@ -1,11 +1,11 @@
 # 图标 Icon
 
-[demo页面](https://zhongantecheng.github.io/zarm/#/icon)
+[demo页面](https://github.com/tian1024527726/yzt-rui/#/icon)
 
 ### 引入
 
 ```js
-import { Icon } from 'zarm';
+import { Icon } from 'yzt-rui';
 ```
 
 ### 代码演示

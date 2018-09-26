@@ -1,11 +1,11 @@
 # 开关 Switch
 
-[demo页面](https://zhongantecheng.github.io/zarm/#/switch)
+[demo页面](https://github.com/tian1024527726/yzt-rui/#/switch)
 
 ### 引入
 
 ```js
-import { Switch } from `zarm`;
+import { Switch } from 'yzt-rui';
 ```
 
 ### 代码演示

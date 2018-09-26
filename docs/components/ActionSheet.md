@@ -1,11 +1,11 @@
 # 动作面板 ActionSheet
 
-[demo页面](https://zhongantecheng.github.io/zarm/#/action-sheet)
+[demo页面](https://github.com/tian1024527726/yzt-rui/#/action-sheet)
 
 ### 引入
 
 ```js
-import { ActionSheet } from 'zarm';
+import { ActionSheet } from 'yzt-rui';
 ```
 
 ### 代码演示

@@ -1,11 +1,11 @@
 # 单选框 Radio
 
-[demo页面](https://zhongantecheng.github.io/zarm/#/radio)
+[demo页面](https://github.com/tian1024527726/yzt-rui/#/radio)
 
 ### 引入
 
 ```js
-import { Radio } from 'zarm';
+import { Radio } from 'yzt-rui';
 ```
 
 ### 代码演示
@@ -114,7 +114,7 @@ import { Radio } from 'zarm';
 | prefixCls | string | za-radio | | 类名前缀 |
 | className | string | | | 追加类名 |
 | theme | string | `primary` | `default`, `primary`, `info`, `success`, `warning`, `error` | 主题 |
-| shape | string | | `radius`, `round` | 圆角或者椭圆角 | 
+| shape | string | | `radius`, `round` | 圆角或者椭圆角 |
 | type | string | | `button`, `cell` | 显示类型 |
 | value | string &#124; number | | | 值 |
 | checked | boolean | | | 当前是否选中 |

@@ -1,11 +1,11 @@
 # 轻提示 Toast
 
-[demo页面](https://zhongantecheng.github.io/zarm/#/toast)
+[demo页面](https://github.com/tian1024527726/yzt-rui/#/toast)
 
 ### 引入
 
 ```js
-import { Toast } from 'zarm';
+import { Toast } from 'yzt-rui';
 ```
 
 ### 代码演示

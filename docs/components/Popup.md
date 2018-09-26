@@ -1,11 +1,11 @@
 # 弹出框 Popup
 
-[demo页面](https://zhongantecheng.github.io/zarm/#/popup)
+[demo页面](https://github.com/tian1024527726/yzt-rui/#/popup)
 
 ### 引入
 
 ```js
-import { Popup } from `zarm`;
+import { Popup } from 'yzt-rui';
 ```
 
 ### 代码演示

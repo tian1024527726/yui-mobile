@@ -1,11 +1,11 @@
 # 模态框 Modal
 
-[demo页面](https://zhongantecheng.github.io/zarm/#/modal)
+[demo页面](https://github.com/tian1024527726/yzt-rui/#/modal)
 
 ### 引入
 
 ```js
-import { Modal } from `zarm`;
+import { Modal } from 'yzt-rui';
 ```
 
 ### 代码演示
