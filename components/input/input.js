@@ -73,9 +73,6 @@ class Input extends React.Component {
 
   handleChange = (e) => {
     const { onChange } = this.props;
-    this.setState({
-      value: e.target.value
-    });
 
     if (onChange) onChange(e.target.value);
   }
@@ -113,7 +110,7 @@ class Input extends React.Component {
 
   render() {
     const {
-        type, bordered, className, style, addonBefore, addonAfter, defaultValue,
+        type, bordered, className, style, addonBefore, addonAfter,
       onPressEnter, prefix, suffix, showClean, rule, showWarning, onClean, children, ...restProps
       } = this.props;
     const { onfocus, value, v_status, v_emptymsg, v_msg } = this.state;
@@ -149,6 +146,11 @@ class Input extends React.Component {
       }
     }
 
+    if('value' in restProps){
+      restProps.value = value;
+      delete restProps.defaultValue;
+    }
+
     const inputCls = classNames('input', className, {
       ['bordered']: bordered
     });
@@ -165,7 +167,6 @@ class Input extends React.Component {
             ref={node => this.input = node}
             {...restProps}
             type={inputType}
-            value={this.state.value}
             onFocus={this.handleFocus}
             onBlur={this.handleBlur}
             onChange={this.handleChange}
