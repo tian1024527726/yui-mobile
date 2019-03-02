@@ -1,6 +1,6 @@
 # 文本框 Input
 
-[demo页面](https://github.com/tian1024527726/yzt-rui/#/input)
+[demo页面](http://47.102.138.2/yui.mobile/#/input)
 
 ### 引入
 
@@ -35,9 +35,10 @@ import { Input } from 'yzt-rui';
 
 ### API
 
+#### Input
+
 | 属性 | 类型 | 默认值 | 可选值／参数 | 说明 |
 | :--- | :--- | :--- | :--- | :--- |
-| prefixCls | string | za-input | | 类名前缀 |
 | className | string | | | 追加类名 |
 | type | string | `text` | `text`, `textarea` | 显示类型 |
 | value | string |  | | 值 |
@@ -49,6 +50,9 @@ import { Input } from 'yzt-rui';
 | showLength | boolean | false | | 是否显示输入字数 |
 | onChange | <code>(value: string) => void</code> | noop | \(value: string\) | 值变化时触发的回调函数 |
 
+#### Input.Number
 
-
+| 属性 | 类型 | 默认值 | 可选值／参数 | 说明 |
+| :--- | :--- | :--- | :--- | :--- |
+| className | string | | | 追加类名 |
 

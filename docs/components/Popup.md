@@ -1,6 +1,6 @@
 # 弹出框 Popup
 
-[demo页面](https://github.com/tian1024527726/yzt-rui/#/popup)
+[demo页面](http://47.102.138.2/yui.mobile/#/popup)
 
 ### 引入
 

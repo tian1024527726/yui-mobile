@@ -1,6 +1,6 @@
 # 滑动输入条 Slider
 
-[demo页面](https://github.com/tian1024527726/yzt-rui/#/slider)
+[demo页面](http://47.102.138.2/yui.mobile/#/slider)
 
 ### 引入
 

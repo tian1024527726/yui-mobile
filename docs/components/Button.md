@@ -1,6 +1,6 @@
 # 按钮 Button
 
-[demo页面](https://github.com/tian1024527726/yzt-rui/#/button)
+[demo页面](http://47.102.138.2/yui.mobile/#/button)
 
 ### 引入
 
@@ -14,74 +14,129 @@ import { Button } from 'yzt-rui';
 
 ###### 普通
 ```jsx
-<Button>普通按钮</Button>
+<Button href='http://www.baidu.com'>返回</Button>
+
+<Button>确认</Button>
 ```
 
-###### 幽灵按钮
+###### 尺寸
 ```jsx
-<Button bordered>幽灵按钮</Button>
+<Button size='small'>小尺寸</Button>
+
+<Button size='default'>默认尺寸</Button>
+
+<Button.Group style={{width:'100%'}}>
+  <Button size='fullwidth'>底部全宽度按钮</Button>
+</Button.Group>
 ```
 
-###### 块级按钮
+###### 颜色
 ```jsx
-<Button block>幽灵按钮</Button>
+<Button.Group style={{width:'45%'}}>
+  <Button type='primary' size='fullwidth'>主要操作normal</Button>
+</Button.Group>
+
+<Button.Group style={{width:'45%'}}>
+  <Button type='secondary' size='fullwidth'>次要操作normal</Button>
+</Button.Group>
 ```
 
-###### 禁用状态
+#### 不同状态
 ```jsx
-<Button disabled>禁用按钮</Button>
+<Button.Group style={{width:'45%'}}>
+  <Button type='primary' state='active' size='fullwidth'>主要操作active</Button>
+</Button.Group>
+
+<Button.Group style={{width:'45%'}}>
+  <Button type='secondary' state='active' size='fullwidth'>次要操作active</Button>
+</Button.Group>
+
+主要操作loading
+<Button.Group style={{width:'45%'}}>
+  <Button type='primary' size='fullwidth' loading></Button>
+</Button.Group>
+
+次要操作loading
+<Button.Group style={{width:'45%'}}>
+  <Button type='secondary' size='fullwidth' loading></Button>
+</Button.Group>
+
+<Button.Group style={{width:'45%'}}>
+  <Button type='primary' size='fullwidth' disabled>主要操作disable</Button>
+</Button.Group>
+
+<Button.Group style={{width:'45%'}}>
+  <Button type='primary' size='fullwidth' disabled>次要操作disable</Button>
+</Button.Group>
 ```
 
-#### 多主题
+#### 倒计时按钮
 ```jsx
-<Button>default</Button>
-<Button theme="primary">primary</Button>
-<Button theme="info">info</Button>
-<Button theme="success">success</Button>
-<Button theme="warning">warning</Button>
-<Button theme="error">error</Button>
-```
+import React from 'react'
+import { Button } from 'yzt-rui'
 
-#### 按钮大小
-```jsx
-<Button size="xl">超大号</Button>
-<Button size="lg">大号</Button>
-<Button>默认</Button>
-<Button size="sm">小号</Button>
-<Button size="xs">超小号</Button>
-```
+class ButtonDemo extends React.Component {
+  constructor(props){
+    super(props)
+    let timer, countDown = '提交';
+    this.state = {
+      countDown: countDown,
+      disabled: false
+    }
+  }
+  handleClick = () => {
+    this.setState({
+      countDown: 5,
+      disabled: true
+    })
+    this.timer = setInterval(()=>{
+      if(this.state.countDown == 1){
+        this.setState({
+          countDown: '提交',
+          disabled: false
+        })
+        clearInterval(this.timer)
+      }else {
+        this.setState({
+          countDown: --this.state.countDown
+        })
+      }
+    },1000)
+  }
+  render(){
+    return (
+      <Button.Group style={{width:'45%'}}>
+        <Button type='primary' disabled={this.state.disabled} size='fullwidth' onClick={this.handleClick}>{this.state.countDown}</Button>
+      </Button.Group>
+    )
+  }
+}
 
-#### 多形状
-```jsx
-<Button shape="radius">圆角按钮</Button>
-<Button shape="round">椭圆角按钮</Button>
-<Button shape="circle">圆形按钮</Button>
-```
-
-#### 带icon的按钮
-```jsx
-<Button icon={<Icon type="right-round" theme="success" />}>正确</Button>
-<Button icon={<Icon type="wrong-round" theme="error" />}>错误</Button>
-<Button loading>加载中</Button>
+ReactDOM.render(<ButtonDemo />, mountNode);
 ```
 
 
 ### API
 
+#### Button
+
 | 属性 | 类型 | 默认值 | 可选值／参数 | 说明 |
 | :--- | :--- | :--- | :--- | :--- |
-| prefixCls | string | za-button | | 类名前缀 |
-| className | string | | | 追加类名 |
-| theme | string | `default` | `default`, `primary`, `info`, `success`, `warning`, `error` | 主题 |
-| size | string | | `xl`, `lg`, `sm`, `xs` | 大小 |
-| shape | string | | `radius`, `round`, `circle` | 形状 |
-| block | boolean | false | | 是否为块级元素 |
-| bordered | boolean | false | | 是否是幽灵按钮 |
-| disabled | boolean | false | | 是否禁用 |
-| loading | boolean | false | | 是否显示加载中 |
-| icon | JSX.Element | | | icon |
+| className | string | - | | 追加类名 |
+| type | string | - | primary &#124; secdonary | 设置按钮类型 |
+| state | string | - | hovered &#124; active &#124; focused | 按钮状态 |
+| size | string | small &#124; default &#124; fullwidth | default | 设置按钮大小 |
 | onClick | <code>(e?: any) => void</code> | noop | | 点击后触发的回调函数 |
+| disabled | boolean | false | | 是否禁止点击 |
+| icon | ReactNode | - | | icon |
+| loading | boolean | false | | 	设置按钮载入状态 |
+| timeOut | number | 500ms | | 	两次点击之间的时间间隔 |
 
 
+#### Button.Group
+##### 用于作为多个Button的容器
 
+| 属性 | 类型 | 默认值 | 可选值／参数 | 说明 |
+| :--- | :--- | :--- | :--- | :--- |
+| className | string | - | | 追加类名 |
 

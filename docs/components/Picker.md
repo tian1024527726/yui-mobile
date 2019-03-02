@@ -1,6 +1,6 @@
 # 选择器 Picker & Select
 
-[demo页面](https://github.com/tian1024527726/yzt-rui/#/picker)
+[demo页面](http://47.102.138.2/yui.mobile/#/picker)
 
 ### 引入
 

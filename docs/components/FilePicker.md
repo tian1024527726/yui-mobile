@@ -1,6 +1,6 @@
 # 文件选择器 FilePicker
 
-[demo页面](https://github.com/tian1024527726/yzt-rui/#/uploader)
+[demo页面](http://47.102.138.2/yui.mobile/#/uploader)
 
 ### 引入
 

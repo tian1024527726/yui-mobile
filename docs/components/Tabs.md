@@ -1,55 +1,81 @@
-# 标签页 Tab
+# 标签页 Tabs
 
-[demo页面](https://github.com/tian1024527726/yzt-rui/#/tab)
+[demo页面](http://47.102.138.2/yui.mobile/#/tabs)
 
 ### 引入
 
 ```js
-import { Tab } from 'yzt-rui';
+import { Tabs, Label } from 'yzt-rui';
 ```
 
 ### 代码演示
 
 #### 基本用法
 
-###### 普通
+###### normal类型
 ```jsx
-<Tab onChange={(index) => { console.log(index); }}>
-  <Tab.Panel title="选项卡1">选项卡1内容</Tab.Panel>
-  <Tab.Panel title="选项卡2">选项卡2内容</Tab.Panel>
-</Tab>
+<Tabs onChange={(k) => { console.log(k) }}>
+  <TabPane tab={<div><Label nodeType='p' size='small'>七日年化收益率</Label><Label nodeType='p' size='small'>4.0290%</Label></div>} key='1'>
+    content1
+  </TabPane>
+  <TabPane tab={<div><Label nodeType='p' size='small'>万分收益</Label><Label nodeType='p' size='small'>1.0581元</Label></div>} key='2'>
+    content2
+  </TabPane>
+</Tabs>
 ```
 
-###### 可滑动
+###### filled类型
 ```jsx
-<Tab canSwipe>
-  <Tab.Panel title="选项卡1">选项卡1内容</Tab.Panel>
-  <Tab.Panel title="选项卡2">选项卡2内容</Tab.Panel>
-</Tab>
+<Tabs onChange={(k) => { console.log(k) }} type='filled'>
+  <TabPane tab={<div><Label nodeType='p' size='medium'>基础款</Label></div>} key='1'>
+    content1
+  </TabPane>
+  <TabPane tab={<div><Label nodeType='p' size='medium'>热销款</Label></div>} key='2'>
+    content2
+  </TabPane>
+  <TabPane tab={<div><Label nodeType='p' size='medium'>全面款</Label></div>} key='3'>
+    content3
+  </TabPane>
+</Tabs>
 ```
 
-###### 指定默认选项
+###### underline类型
 ```jsx
-<Tab defaultValue={1}>
-  <Tab.Panel title="选项卡1">选项卡1内容</Tab.Panel>
-  <Tab.Panel title="选项卡2">选项卡2内容</Tab.Panel>
-</Tab>
+<Tabs onChange={(k) => { console.log(k) }} type='underline'>
+  <TabPane tab={<div><Label nodeType='p' size='medium'>基础款</Label></div>} key='1'>
+    content1
+  </TabPane>
+  <TabPane tab={<div><Label nodeType='p' size='medium'>热销款</Label></div>} key='2'>
+    content2
+  </TabPane>
+  <TabPane tab={<div><Label nodeType='p' size='medium'>全面款</Label></div>} key='3'>
+    content3
+  </TabPane>
+</Tabs>
 ```
 
-###### 指定线条宽度
+###### activeColor种类
 ```jsx
-<Tab lineWidth={60}>
-  <Tab.Panel title="选项卡1">选项卡1内容</Tab.Panel>
-  <Tab.Panel title="选项卡2">选项卡2内容</Tab.Panel>
-</Tab>
+<Tabs onChange={(k) => { console.log(k) }} activeColor='yellow'>
+  <TabPane tab={<div><Label nodeType='p' size='small'>七日年化收益率</Label><Label nodeType='p' size='small'>4.0290%</Label></div>} key='1'>
+    content1
+  </TabPane>
+  <TabPane tab={<div><Label nodeType='p' size='small'>万分收益</Label><Label nodeType='p' size='small'>1.0581元</Label></div>} key='2'>
+    content2
+  </TabPane>
+</Tabs>
 ```
 
-###### 禁用指定选项
+###### activeKey受控组件
 ```jsx
-<Tab>
-  <Tab.Panel title="选项卡1">选项卡1内容</Tab.Panel>
-  <Tab.Panel title="选项卡2" disabled>选项卡2内容</Tab.Panel>
-</Tab>
+<Tabs onChange={(k) => { this.setState({ activeKey: k }) }} type='filled' activeColor='yellow' activeKey={activeKey}>
+  <TabPane tab={<div><Label nodeType='p' size='medium'>基础款</Label></div>} key='1'>
+    受控的tabs1
+  </TabPane>
+  <TabPane tab={<div><Label nodeType='p' size='medium'>热销款</Label></div>} key='2'>
+    受控的tabs2
+  </TabPane>
+</Tabs><br />
 ```
 
 
@@ -60,24 +86,21 @@ import { Tab } from 'yzt-rui';
 
 | 属性 | 类型 | 默认值 | 可选值／参数 | 说明 |
 | :--- | :--- | :--- | :--- | :--- |
-| prefixCls | string | za-tab | | 类名前缀 |
-| className | string | | | 追加类名 |
-| value | string | | | 值 |
-| defaultValue | string | | | 初始值 |
-| disabled | boolean | false | | 是否禁用 |
-| canSwipe | boolean | false | | 是否支持滑动切换 |
-| lineWidth | number &#124; string | | | 线条宽度 |
-| onChange | <code>(index: number) => void</code> | noop | \(index: number\) | 值变化时触发的回调函数 |
+| className | string | - | - | 追加类名 |
+| defaultActiveKey | string | - | - | 初始化选中面板的 key，如果没有设置 activeKey |
+| activekey | string | - | - | 当前激活 tab 面板的 key |
+| type | string | normal | `normal`, `filled`,  `underline` | 页签的基本样式 |
+| activeColor | string | `blue`, `oringe`, `yellow`, `purple`, `green` | - | 线条宽度 |
+| onChange | <code>(index: string) => void</code> | noop | \(index: string\) | 切换面板的回调 |
 
 
 #### Tab.Panel
 
 | 属性 | 类型 | 默认值 | 可选值／参数 | 说明 |
 | :--- | :--- | :--- | :--- | :--- |
-| className | string | | | 追加类名 |
-| disabled | boolean | false | | 是否禁用 |
-| title | string | | | 标题 |
-| children | number | | | 内容 |
+| className | string | - | - | 追加类名 |
+| tab | string &#124; ReactNode | - | - | 选项卡头显示文字 |
+| key | string | - | - | 对应 activeKey |
 
 
 

@@ -5,11 +5,11 @@
   "plugins": ["prism", "-highlight", "anchors", "editlink", "github"],
   "pluginsConfig": {
     "editlink": {
-      "base": "https://github.com/tian1024527726/yzt-rui/tree/master/docs/",
+      "base": "https://github.com/tian1024527726/yui-mobile/tree/master/docs/",
       "label": "Edit This Page"
     },
     "github": {
-      "url": "https://github.com/tian1024527726/yzt-rui"
+      "url": "https://github.com/tian1024527726/yui-mobile"
     }
   },
   "links": {

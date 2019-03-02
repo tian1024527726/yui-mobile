@@ -1,6 +1,6 @@
 # 步进器 Stepper
 
-[demo页面](https://github.com/tian1024527726/yzt-rui/#/stepper)
+[demo页面](http://47.102.138.2/yui.mobile/#/stepper)
 
 ### 引入
 

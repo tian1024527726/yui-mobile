@@ -1,6 +1,6 @@
 # 通告栏 NoticeBar
 
-[demo页面](https://github.com/tian1024527726/yzt-rui/#/notice-bar)
+[demo页面](http://47.102.138.2/yui.mobile/#/notice-bar)
 
 ### 引入
 

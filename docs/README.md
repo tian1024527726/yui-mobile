@@ -1,10 +1,10 @@
-# YZT-RUI
+# YZT RUI
 
   金融壹账通移动端UI组件库，基于React。
 
 ### Example 案例
 
-[Online example](https://tian1024527726.github.io/yzt-rui/)
+[Online example](http://47.102.138.2/yui.mobile/)
 
 ### Install 安装
 
@@ -55,10 +55,10 @@ import './styles/index.scss';
 通过自己的variables.scss文件重写sass变量。
 
 ### Document 文档
-[中文](https://github.com/tian1024527726/yzt-rui)
+[中文](https://github.com/tian1024527726/yui-mobile)
 
 ### Changelog 更新日志
-[CHANGELOG.md](https://github.com/tian1024527726/yzt-rui)
+[CHANGELOG.md](https://github.com/tian1024527726/yui-mobile)
 
 ### License
 MIT

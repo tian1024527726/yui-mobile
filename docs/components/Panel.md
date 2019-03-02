@@ -1,6 +1,6 @@
 # 面板 Panel
 
-[demo页面](https://github.com/tian1024527726/yzt-rui/#/panel)
+[demo页面](http://47.102.138.2/yui.mobile/#/panel)
 
 ### 引入
 

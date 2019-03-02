@@ -13,7 +13,7 @@
     "lib": "rimraf lib && babel components --out-dir lib --presets=env,react,stage-2 --ignore 'src/components/style'",
     "docs": "cd docs && gitbook install && gitbook serve",
     "package": "node scripts/package && rimraf dist",
-    "test": "echo lol"
+    "test": "echo nothing"
   },
   "dependencies": {
     "better-scroll": "^1.8.4",

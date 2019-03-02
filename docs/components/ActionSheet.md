@@ -1,6 +1,6 @@
 # 动作面板 ActionSheet
 
-[demo页面](https://github.com/tian1024527726/yzt-rui/#/action-sheet)
+[demo页面](http://47.102.138.2/yui.mobile/#/action-sheet)
 
 ### 引入
 

@@ -1,6 +1,6 @@
 # 开关 Switch
 
-[demo页面](https://github.com/tian1024527726/yzt-rui/#/switch)
+[demo页面](http://47.102.138.2/yui.mobile/#/switch)
 
 ### 引入
 

@@ -24,7 +24,7 @@ module.exports = {
       {
         test: /\.(js|jsx)$/,
         loader: 'eslint-loader',
-        // include: [ config.paths.site, config.paths.ui ],
+        include: [ config.paths.site, config.paths.ui ],
         exclude: /node_modules/,
         enforce: 'pre',
         options: {
@@ -34,7 +34,7 @@ module.exports = {
       {
         test: /\.(js|jsx)$/,
         loader: 'babel-loader',
-        // include: [ config.paths.site, config.paths.ui ],
+        include: [ config.paths.site, config.paths.ui ],
         exclude: /node_modules/
       },
       {
@@ -49,7 +49,7 @@ module.exports = {
         test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
         loader: 'url-loader',
         query: {
-          // limit: 10000,
+          limit: 10000,
           name: utils.assetsPath('fonts/[name].[ext]')
         }
       }

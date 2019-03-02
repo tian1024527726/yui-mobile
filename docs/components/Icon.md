@@ -1,6 +1,6 @@
 # 图标 Icon
 
-[demo页面](https://github.com/tian1024527726/yzt-rui/#/icon)
+[demo页面](http://47.102.138.2/yui.mobile/#/icon)
 
 ### 引入
 
@@ -14,22 +14,34 @@ import { Icon } from 'yzt-rui';
 
 ###### 普通
 ```jsx
-<Icon type="add" />
+<Icon type='arrow-right'></Icon>
+
+<Icon type='warning'></Icon>
+
+<Icon type='clear'></Icon>
+
+<Icon type='claim'></Icon>
+
+<Icon type='keyboard-close'></Icon>
 ```
 
-###### 主题
+###### 尺寸
 ```jsx
-<Icon type="add" theme="error" />
+<Icon size='m' type='keyboard-close'></Icon>
+
+<Icon type='keyboard-close'></Icon>
+
+<Icon size='s' type='keyboard-close'></Icon>
 ```
 
 ### API
 
 | 属性 | 类型 | 默认值 | 可选值／参数 | 说明 |
 | :--- | :--- | :--- | :--- | :--- |
-| prefixCls | string | za-stepper | | 类名前缀 |
-| className | string | | | 追加类名 |
-| theme | string | 'default' | 'default', 'primary', 'info', 'success', 'warning', 'error' | 主题 |
-| type | string | | 'right', 'right-round', 'right-round-fill','wrong', 'wrong-round', 'wrong-round-fill', 'info-round', 'info-round-fill', 'question-round', 'question-round-fill', 'warning-round', 'warning-round-fill', 'arrow-left', 'arrow-right', 'arrow-top', 'arrow-bottom', 'add', 'add-round', 'add-round-fill', 'minus', 'minus-round', 'minus-round-fill', 'broadcast' | 图标类型 |
+| className | string | - | - | 追加类名 |
+| size | string | - | `xs`, `s`, `sm`, `dm`, `m`, `sl`, `l`  | 尺寸 |
+| type | string | - | `arrow-right`, `warning`, `clear`, `claim`, `keyboard-close`, `keyboard-close`, `keyboard-close`, `info`, `customer` | 图标类型 |
+
 
 
 
