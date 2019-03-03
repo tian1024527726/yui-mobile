@@ -1,4 +1,4 @@
-# 列表项 Cell
+# 卡片 Cell
 
 [demo页面](http://47.102.138.2/yui.mobile/#/cell)
 
@@ -14,57 +14,51 @@ import { Cell } from 'yzt-rui';
 
 ###### 普通
 ```jsx
-<Cell title="标题文字" />
-<Cell
-  title={
-    <div className="box">
-      <div className="box-title">标题文字</div>
-      <div className="box-description">描述文字</div>
-    </div>
-  }
-  />
+<Cell type='primary' bordered style={{padding:'0 1.125rem 0 1.125rem'}} onClick={()=>{console.log(12)}} subTitle='查看更多' title='产品相关协议' hasArrow />
 ```
 
 ###### 带描述
 ```jsx
-<Cell title="标题文字" description="描述文字" />
-<Cell title="标题文字" description={<Icon type="right" />} />
+<Cell type='secondary' description='查看更多查看更多查看更多查看更多查看更多查看更多查看更多查看更多' title='产品相关协议'/>
 ```
 
 ###### 带图标、描述
 ```jsx
-<Cell title="标题文字" icon={<Icon type="right" />} />
-<Cell title="标题文字" icon={<img alt="" src={require('../images/icons/state.png')} />} />
-```
+import { Cell, Icon, Title, Label} from 'yzt-rui';
 
-###### 带跳转
-```jsx
-<Cell hasArrow title="标题文字" onClick={() => {}} />
-```
+<Cell type='secondary' style={{paddingLeft:'1.125rem',paddingRight:'1.125rem'}} prefixIcon={<Icon size='m' color='link' type='universal' />} bordered description={description()}  hasArrow />
 
-#### 提示信息
-```jsx
-<Cell
-  title="标题"
-  help={<Message theme="error" icon={<Icon type="info-round" />}>标题不能为空</Message>}>
-  <Input type="text" placeholder="请输入标题" />
-</Cell>
+const description = () => {
+  return (
+    <div>
+      <Title
+        size='5'
+      >
+        平安银行储蓄卡(8878)
+      </Title>
+      <Label size='small'>
+        单笔限额100万元，单日限额100万元
+      </Label>
+    </div>
+  )
+}
 ```
-
 
 ### API
 
 | 属性 | 类型 | 默认值 | 可选值／参数 | 说明 |
 | :--- | :--- | :--- | :--- | :--- |
-| prefixCls | string | za-cell | | 类名前缀 |
 | className | string | | | 追加类名 |
-| theme | string | `primary` | `default`, `primary`, `info`, `success`, `warning`, `error` | 主题 |
-| icon | any | | | 显示的图标 |
-| titile | any | | | 标题 |
-| description | any | | | 描述 |
-| hasArrow | boolean | false | | 是否显示箭头 |
-| help | any | | | 下方提示信息，通常配合`Message`组件使用 |
-| onClick | <code>() => void</code> | noop | | 点击后触发的回调函数 |
+| type | string | `primary` | `primary`, `secondary` | 类型 |
+| prefixIcon | ReactNode | - | - | 前面显示的图标 |
+| suffixIcon | ReactNode | - | - | 后面显示的图标 |
+| title | string &#124; ReactNode | - | - | 左边标题 |
+| subTitle | string &#124; ReactNode | - | - | 右边标题 |
+| description | any | - | - | 描述 |
+| hasArrow | boolean | false | - | 是否显示箭头 |
+| bordered | boolean | false | - | 是否显示边框 |
+| disabled | boolean | false | - | 禁止点击时阴影效果 |
+| onClick | <code>() => void</code> | noop | | 点击后触发的回调函数,会默认增加点击的阴影效果 |
 
 
 

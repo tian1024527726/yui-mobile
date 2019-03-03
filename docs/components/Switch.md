@@ -22,14 +22,20 @@ import { Switch } from 'yzt-rui';
   />
 ```
 
+###### 尺寸
+```jsx
+<Switch size='xs'/>
+<Switch size='s'/>
+<Switch size='sm'/>
+<Switch size='dm'/>
+<Switch size='m'/>
+<Switch size='sl'/>
+```
+
+
 ###### 设置默认值（开启）
 ```jsx
 <Switch defaultChecked />
-```
-
-###### 禁用状态
-```jsx
-<Switch disabled />
 ```
 
 
@@ -37,12 +43,10 @@ import { Switch } from 'yzt-rui';
 
 | 属性 | 类型 | 默认值 | 可选值／参数 | 说明 |
 | :--- | :--- | :--- | :--- | :--- |
-| prefixCls | string | za-switch | | 类名前缀 |
 | className | string | | | 追加类名 |
-| theme | string | `primary` | `default`, `primary`, `info`, `success`, `warning`, `error` | 主题 |
-| checked | boolean | | | 值 |
-| defaultChecked | boolean | | | 初始值 |
-| disabled | boolean | false | | 是否禁用 |
+| size | string | `default` | `xs`, `s`, `sm`, `dm`, `m`, `sl`, `l`, `xl`, `xxl`, `xxxl` | 主题 |
+| checked | boolean | - | | 值 |
+| defaultChecked | boolean | false | | 值 |
 | onChange | <code>(value: boolean) => void</code> | | \(value: boolean\) | 值变化时触发的回调函数 |
 
 

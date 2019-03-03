@@ -75,7 +75,7 @@ import { Tabs, Label } from 'yzt-rui';
   <TabPane tab={<div><Label nodeType='p' size='medium'>热销款</Label></div>} key='2'>
     受控的tabs2
   </TabPane>
-</Tabs><br />
+</Tabs>
 ```
 
 
