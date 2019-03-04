@@ -15,22 +15,16 @@ import { Icon } from 'yzt-rui';
 ###### 普通
 ```jsx
 <Icon type='arrow-right'></Icon>
-
 <Icon type='warning'></Icon>
-
 <Icon type='clear'></Icon>
-
 <Icon type='claim'></Icon>
-
 <Icon type='keyboard-close'></Icon>
 ```
 
 ###### 尺寸
 ```jsx
 <Icon size='m' type='keyboard-close'></Icon>
-
 <Icon type='keyboard-close'></Icon>
-
 <Icon size='s' type='keyboard-close'></Icon>
 ```
 

@@ -19,7 +19,7 @@ import { Switch } from 'yzt-rui';
   onChange={(value) => {
     this.setState({ value });
   }}
-  />
+/>
 ```
 
 ###### 尺寸

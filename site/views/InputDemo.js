@@ -42,6 +42,8 @@ class InputDemo extends React.Component {
               ref={node => this.ageInput = node}
               addonBefore='年龄'
               placeholder='hello'
+              defaultValue='1'
+              value='2'
               showClean={true}
               onClean={() => { }}
               onBlur={(val, res) => { console.log(val, res) }}
@@ -55,7 +57,9 @@ class InputDemo extends React.Component {
               addonBefore='性别'
               //placeholder='hello'
               rule={{ regExp: /^\d+$/, msg: '请输入正确的性别' }}
+              value='hh'
               showClean={true}
+              showWarning={true}
             //suffix={<Icon type='arrow-right' />}
             />}
           />

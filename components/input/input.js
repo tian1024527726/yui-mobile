@@ -10,7 +10,7 @@ class Input extends React.Component {
     super(props);
 
     const v_regExp = props.rule && props.rule.regExp || /.*/;
-    const value = props.defaultValue || props.value || '';
+    const value = 'value' in props ? props.value || '' : props.defaultValue || '';
     const v_status = value ? v_regExp.test(value) : true;
 
     this.state = {
@@ -74,6 +74,13 @@ class Input extends React.Component {
   handleChange = (e) => {
     const { onChange } = this.props;
 
+    if('value' in this.props){
+
+    }else{
+      this.setState({
+        value: e.target.value
+      })
+    }
     if (onChange) onChange(e.target.value);
   }
 
@@ -110,9 +117,9 @@ class Input extends React.Component {
 
   render() {
     const {
-        type, bordered, className, style, addonBefore, addonAfter,
+      type, bordered, className, style, addonBefore, addonAfter,
       onPressEnter, prefix, suffix, showClean, rule, showWarning, onClean, children, ...restProps
-      } = this.props;
+    } = this.props;
     const { onfocus, value, v_status, v_emptymsg, v_msg } = this.state;
     const inputType = type || 'text';
 
@@ -146,7 +153,7 @@ class Input extends React.Component {
       }
     }
 
-    if('value' in restProps){
+    if ('value' in restProps) {
       restProps.value = value;
       delete restProps.defaultValue;
     }
@@ -201,6 +208,7 @@ Input.propTypes = {
   onKeyUp: PropTypes.func,
   onFocus: PropTypes.func,
   onBlur: PropTypes.func,
+  onChange: PropTypes.func,
   onClean: PropTypes.func,
   prefix: PropTypes.node,
   suffix: PropTypes.node,

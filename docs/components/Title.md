@@ -15,24 +15,17 @@ import { Title } from 'yzt-rui';
 ###### 尺寸
 ```jsx
 <Title size='1'>Size-1 3rem 基准 48px</Title>
-
 <Title size='2'>Size-2 2.375rem 基准 38px</Title>
-
 <Title size='3'>Size-3 (Default) 1.5rem 基准 24px</Title>
-
 <Title size='4'>Size-4 1.125rem 基准 18px</Title>
-
 <Title size='5'>Size-5 1rem 基准 16px</Title>
-
 <Title size='6'>Size-6 0.875rem 基准 14px</Title>
-
 <Title size='7'>Size-6 0.75rem 基准 14px</Title>
 ```
 
 ###### 字体颜色
 ```jsx
 <Title color='white'>短期意外伤害保险</Title>
-
 <Title color='black'>短期意外伤害保险</Title>
 ```
 
