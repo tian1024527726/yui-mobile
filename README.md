@@ -11,6 +11,9 @@ npm install | yarn install
 # start development
 npm start
 
+# run docs
+npm run docs
+
 # build site
 npm run build | npm run build:debug
 

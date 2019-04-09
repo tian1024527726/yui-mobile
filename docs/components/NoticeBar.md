@@ -1,6 +1,6 @@
 # 通告栏 NoticeBar
 
-[demo页面](http://47.102.138.2/yui.mobile/#/notice-bar)
+[demo页面](https://yyb323.com/yui.mobile/#/notice-bar)
 
 ### 引入
 

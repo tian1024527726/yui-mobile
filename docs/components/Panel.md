@@ -1,6 +1,6 @@
 # 面板 Panel
 
-[demo页面](http://47.102.138.2/yui.mobile/#/panel)
+[demo页面](https://yyb323.com/yui.mobile/#/panel)
 
 ### 引入
 

@@ -1,6 +1,6 @@
 # 卡片 Cell
 
-[demo页面](http://47.102.138.2/yui.mobile/#/cell)
+[demo页面](https://yyb323.com/yui.mobile/#/cell)
 
 ### 引入
 

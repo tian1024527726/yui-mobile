@@ -1,6 +1,6 @@
 # 日期选择器 DatePicker & DateSelect
 
-[demo页面](http://47.102.138.2/yui.mobile/#/datePicker)
+[demo页面](https://yyb323.com/yui.mobile/#/datePicker)
 
 ### 引入
 

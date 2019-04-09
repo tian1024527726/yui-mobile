@@ -1,6 +1,6 @@
 # 模态框 Modal
 
-[demo页面](http://47.102.138.2/yui.mobile/#/modal)
+[demo页面](https://yyb323.com/yui.mobile/#/modal)
 
 ### 引入
 

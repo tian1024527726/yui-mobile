@@ -1,6 +1,6 @@
 # 上拉加载下拉刷新 Pull
 
-[demo页面](http://47.102.138.2/yui.mobile/#/pull)
+[demo页面](https://yyb323.com/yui.mobile/#/pull)
 
 ### 引入
 
@@ -10,148 +10,150 @@ import { Pull } from 'yzt-rui';
 
 ### 代码演示
 
-#### 状态枚举
-```js
-const REFRESH_STATE = {
-  normal: 0,  // 普通
-  pull: 1,    // 下拉刷新（未满足刷新条件）
-  drop: 2,    // 释放立即刷新（满足刷新条件）
-  loading: 3, // 加载中
-  success: 4, // 加载成功
-  failure: 5, // 加载失败
-};
-
-const LOAD_STATE = {
-  normal: 0,  // 普通
-  abort: 1, // 中止
-  loading: 2, // 加载中
-  success: 3, // 加载成功
-  failure: 4, // 加载失败
-  complete: 5, // 加载完成（无新数据）
-};
-```
-
 #### 下拉刷新
 
 ###### 基本
 ```jsx
 <Pull
-  refresh={{
-    state: this.state.refresh,
-    refresh: () => {
-      this.setState({ refresh: REFRESH_STATE.loading });
-      setTimeout(() => {
-        this.setState({ refresh: REFRESH_STATE.success });
-      }, 2000);
-    },
-  }}>
-  foo
-</Pull>
-```
-
-###### 自定义
-```jsx
-<Pull
-  refresh={{
-    state: this.state.refresh,
-    startDistance: 0,
-    distance: 80,
-    handler: () => {
-      this.setState({ refresh: REFRESH_STATE.loading });
-      setTimeout(() => {
-        this.setState({ refresh: REFRESH_STATE.success });
-      }, 2000);
-    },
-    render: (actionState, percent) => {
-      const cls = 'custom-control';
-      switch (actionState) {
-        case REFRESH_STATE.pull:
-          return <div className={cls} style={{ transform: `scale(${percent / 100})` }}><img src={logo} alt="" /></div>;
-
-        case REFRESH_STATE.drop:
-          return <div className={cls}>释放立即刷新</div>;
-
-        case REFRESH_STATE.loading:
-          return <div className={cls}><Spinner className="rotate360" /></div>;
-
-        case REFRESH_STATE.success:
-          return <div className={cls}>加载成功</div>;
-
-        case REFRESH_STATE.failure:
-          return <div className={cls}>加载失败</div>;
-      }
-    },
-  }}>
-  foo
-</Pull>
+  ref={(node) => window.pull = node}
+  canPullDown={true}
+  finishPullDown={() => {
+    return new Promise((resolve, reject) => {
+      console.log('刷新中'); setTimeout(() => {
+        if (this.isUnMounted) return false;
+        this.setState({
+          data: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+        }, resolve)
+      }, 1000)
+    })
+  }}
+  pullContent={<div>1234</div>}
+/>
 ```
 
 #### 上拉加载
 
 ###### 基本
 ```jsx
-<Pull
-  load={{
-    state: this.state.load,
-    handler: () => {
-      this.setState({ load: LOAD_STATE.loading });
+ <Pull
+  ref={(node) => window.pull = node}
+  canPullUp={true}
+  finishPullUp={() => {
+    return new Promise((resolve, reject) => {
+      console.log('加载更多中')
       setTimeout(() => {
-        this.setState({ load: LOAD_STATE.success });
-      }, 2000);
-    },
-  }}>
-  foo
-</Pull>
+        const data = [].concat(this.state.data,[1,1,1,1])
+        console.log(data)
+        if (this.isUnMounted) return false;
+        this.setState({
+          data: data
+        }, resolve)
+      }, 1000)
+    })
+  }}
+  pullContent={<div>1234</div>}
+/>
 ```
 
-###### 自定义
+###### 自定义s
 ```jsx
-<Pull
-  load={{
-    state: this.state.load,
-    handler: () => {
-      this.setState({ load: LOAD_STATE.loading });
-      setTimeout(() => {
-        this.setState({ load: LOAD_STATE.success });
-      }, 2000);
-    },
-    render: (loadState) => {
-      const cls = 'custom-control';
-      switch (loadState) {
-        case LOAD_STATE.loading:
-          return <div className={cls}><Spinner className="rotate360" /></div>;
+import React from 'react';
+import { Pull, Cell, List, Title } from '@ui';
 
-        case LOAD_STATE.failure:
-          return <div className={cls}>加载失败</div>;
+class PullDemo extends React.Component {
+  constructor(props) {
+    super(props)
+    this.isUnMounted = false;
+    this.state = {
+      data: [1, 1, 1, 1, 1, 1, 1,1,1,1,1,1,1,1,1,1,,1,1],
+      noMoreData: false
+    }
+  }
 
-        case LOAD_STATE.complete:
-          return <div className={cls}>我是有底线的</div>;
-      }
-    },
-  }}>
-  foo
-</Pull>
+  renderPullRefreshContent() {
+    return (
+      <List style={{ backgroundColor: '#fff' }}>
+        {this.state.data.map((item, index) => {
+          return (
+            <List.Item key={index}
+              renderItem={<Cell
+                title={'产品合同'}
+                hasArrow={true}
+              />}
+            />
+          )
+        })}
+      </List>
+    )
+  }
+  componentDidMount(){}
+  componentWillUnmount() {
+    this.isUnMounted = true;
+  }
+
+  render() {
+    const { noMoreData } = this.state
+    return (
+      <div className='pullPage'>
+        <div className='pullScroll'>
+          <Pull
+            ref={(node) => window.pull = node}
+            canPullDown={true}
+            canPullUp={true}
+            containerHeight={'600px'}
+            finishPullDown={() => {
+              return new Promise((resolve, reject) => {
+                console.log('刷新中'); setTimeout(() => {
+                  if (this.isUnMounted) return false;
+                  this.setState({
+                    data: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+                  }, resolve)
+                }, 1000)
+              })
+            }}
+            finishPullUp={() => {
+              return new Promise((resolve, reject) => {
+                console.log('加载更多中')
+                setTimeout(() => {
+                  const data = [].concat(this.state.data,[1,1,1,1])
+                  console.log(data)
+                  if (this.isUnMounted) return false;
+                  this.setState({
+                    data: data
+                  }, resolve)
+                }, 1000)
+              })
+            }}
+            noMoreData={noMoreData}
+            pullContent={this.renderPullRefreshContent()}
+          />
+        </div>
+      </div>
+    )
+  }
+}
+
+ReactDom(<PullDemo/>,mountNode)
+
 ```
 
 ### API
 
 | 属性 | 类型 | 默认值 | 可选值／参数 | 说明 |
 | :--- | :--- | :--- | :--- | :--- |
-| prefixCls | string | za-pull | | 类名前缀 |
 | className | string | | | 追加类名 |
-| refresh | Action | | | 下拉刷新的参数配置 |
-| load | Action |  | | 上拉加载的参数配置 |
-| animationDuration | number | 400 | | 动画执行时间，单位：毫秒 |
-| stayTime | number | 1000 | | 加载成功停留时间 |
-
-#### Action 类型定义
-| 属性 | 类型 | 默认值 | 可选值／参数 | 说明 |
-| :--- | :--- | :--- | :--- | :--- |
-| state | REFRESH_STATE &#124; LOAD_STATE | 0 | | 状态枚举 |
-| startDistance | number | 20 | | 下拉时的助跑距离 |
-| distance | number | 50 | | 触发距离阀值 |
-| render | <code>(refreshState: REFRESH_STATE &#124; LOAD_STATE, percent: number) => any</code> | | | 各状态渲染的回调函数 |
-| handler | <code>() => void</code> | | | 达到阀值后释放触发的回调函数 |
-
+| canPullDown | boolean | false |  | 是否允许下拉 |
+| canPullUp | boolean | false |  | 是否允许上拉 |
+| containerHeight | string | 父盒子高度 |  | 容器高度 |
+| showScrollBar | boolean | false | | 是否展示右边的滚动条 |
+| preventClick | boolean | true | | 是否阻止click事件 |
+| preventTap | boolean | true | | 是否阻止tap事件 |
+| finishPullDown | func | | | 触发下拉刷新事件执行函数，需返回promise对象 |
+| finishPullUp | func | | | 触发上拉加载事件执行函数，需返回promise对象 |
+| noMoreData | boolean | false | | 是否没有更多数据 |
+| bounceTime | number | 300 | | 设置滑动动画结束事件 |
+| pullContent | ReactNode | | | 容器内容 |
+| bottomMsg | string | 没有更多记录 | | 内有更多内容时底部出现的描述文字 |
+| pullingUpMsg | string | 加载更多 | | 上拉加载时底部出现的描述文字 |
 
 

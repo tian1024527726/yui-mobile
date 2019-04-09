@@ -28,16 +28,13 @@ class PullDemo extends React.Component {
       </List>
     )
   }
-  componentDidMount(){
-    console.log(this.pull)
-  }
+  componentDidMount(){}
   componentWillUnmount() {
     this.isUnMounted = true;
   }
 
   render() {
     const { noMoreData } = this.state
-    console.log(noMoreData)
     return (
       <div className='pullPage'>
         <Header></Header>

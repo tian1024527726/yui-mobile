@@ -1,6 +1,6 @@
 # 选择器 Picker & Select
 
-[demo页面](http://47.102.138.2/yui.mobile/#/picker)
+[demo页面](https://yyb323.com/yui.mobile/#/picker)
 
 ### 引入
 

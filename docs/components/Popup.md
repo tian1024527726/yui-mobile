@@ -1,6 +1,6 @@
 # 弹出框 Popup
 
-[demo页面](http://47.102.138.2/yui.mobile/#/popup)
+[demo页面](https://yyb323.com/yui.mobile/#/popup)
 
 ### 引入
 

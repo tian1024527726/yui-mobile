@@ -1,6 +1,6 @@
 # 进度条 Progress
 
-[demo页面](http://47.102.138.2/yui.mobile/#/progress)
+[demo页面](https://yyb323.com/yui.mobile/#/progress)
 
 ### 引入
 

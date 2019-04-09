@@ -1,6 +1,6 @@
 # 滑动操作 SwipeAction
 
-[demo页面](http://47.102.138.2/yui.mobile/#/swipe-action)
+[demo页面](https://yyb323.com/yui.mobile/#/swipe-action)
 
 ### 引入
 

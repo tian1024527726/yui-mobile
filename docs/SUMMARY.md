@@ -28,17 +28,13 @@
   * [链接 Link](components/Link.md)
   * [时间轴 TimeAxis](components/TimeAxis.md)
 * 手势 Gesture
-  * [列表项 Cell](components/Cell.md)
-  * [图标 Icon](components/Icon.md)
-  * [消息 Message](components/Message.md)
-  * [通告栏 NoticeBar](components/NoticeBar.md)
-  * [面板 Panel](components/Panel.md)
-  * [进度条 Progress](components/Progress.md)
-  * [指示器 Spinner](components/Spinner.md)
-  * [图片轮播 Swipe](components/Swipe.md)
+  * [拉动刷新 Pull](components/Pull.md)
+  * [选择器 Picker](components/Picker.md)
 
 * 操作反馈 Feedback
-  * [列表项 Cell](components/Cell.md)
+  * [弹出框 Popup](components/Popup.md)
+  * [弹出框 Modal](components/Modal.md)
+  * [提示框 Toast](components/Toast.md)
 
 
 

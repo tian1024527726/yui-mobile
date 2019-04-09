@@ -1,6 +1,6 @@
 # 指示器 Spinner
 
-[demo页面](http://47.102.138.2/yui.mobile/#/spinner)
+[demo页面](https://yyb323.com/yui.mobile/#/spinner)
 
 ### 引入
 
