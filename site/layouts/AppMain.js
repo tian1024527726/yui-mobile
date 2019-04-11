@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Switch, Route } from 'react-router-dom'
+import { Switch, Route, Redirect } from 'react-router-dom'
 // import views
 import HomePage from '@site/views/HomePage'
 import AboutPage from '@site/views/AboutPage'
@@ -33,28 +33,29 @@ export default class AppMain extends React.Component {
     return (
       <div style={{position: 'relative',flex: 1,height:'100%'}}>
         <Switch>
-          <Route exact path="/" component={HomePage} />
-          <Route exact path="/icon" component={IconDemo} />
-          <Route exact path="/button" component={ButtonDemo} />
-          <Route exact path="/label" component={LabelDemo} />
-          <Route exact path="/tag" component={TagDemo} />
-          <Route exact path="/title" component={TitleDemo} />
-          <Route exact path="/cell" component={CellDemo} />
-          <Route exact path="/list" component={ListDemo} />
-          <Route exact path="/input" component={InputDemo} />
-          <Route exact path="/link" component={LinkDemo} />
-          <Route exact path="/tabs" component={TabsDemo} />
-          <Route exact path="/radio" component={RadioDemo} />
-          <Route exact path="/pull" component={PullDemo} />
-          <Route exact path="/keyboard" component={KeyboardDemo} />
-          <Route exact path="/popup" component={PopupDemo} />
-          <Route exact path="/timeaxis" component={TimeAxisDemo} />
-          <Route exact path="/switch" component={SwitchDemo} />
-          <Route exact path="/checkbox" component={CheckboxDemo} />
-          <Route exact path="/modal" component={ModalDemo} />
-          <Route exact path="/toast" component={ToastDemo} />
-          <Route exact path="/picker" component={PickerDemo} />
-          <Route path="/about" component={AboutPage} />
+          <Redirect exact from='/' to='/yui.mobile' />
+          <Route exact path="/yui.mobile" component={HomePage} />
+          <Route exact path="/yui.mobile/icon" component={IconDemo} />
+          <Route exact path="/yui.mobile/button" component={ButtonDemo} />
+          <Route exact path="/yui.mobile/label" component={LabelDemo} />
+          <Route exact path="/yui.mobile/tag" component={TagDemo} />
+          <Route exact path="/yui.mobile/title" component={TitleDemo} />
+          <Route exact path="/yui.mobile/cell" component={CellDemo} />
+          <Route exact path="/yui.mobile/list" component={ListDemo} />
+          <Route exact path="/yui.mobile/input" component={InputDemo} />
+          <Route exact path="/yui.mobile/link" component={LinkDemo} />
+          <Route exact path="/yui.mobile/tabs" component={TabsDemo} />
+          <Route exact path="/yui.mobile/radio" component={RadioDemo} />
+          <Route exact path="/yui.mobile/pull" component={PullDemo} />
+          <Route exact path="/yui.mobile/keyboard" component={KeyboardDemo} />
+          <Route exact path="/yui.mobile/popup" component={PopupDemo} />
+          <Route exact path="/yui.mobile/timeaxis" component={TimeAxisDemo} />
+          <Route exact path="/yui.mobile/switch" component={SwitchDemo} />
+          <Route exact path="/yui.mobile/checkbox" component={CheckboxDemo} />
+          <Route exact path="/yui.mobile/modal" component={ModalDemo} />
+          <Route exact path="/yui.mobile/toast" component={ToastDemo} />
+          <Route exact path="/yui.mobile/picker" component={PickerDemo} />
+          <Route path="/yui.mobile/about" component={AboutPage} />
           <Route component={NotFoundPage} />
         </Switch>
       </div>
