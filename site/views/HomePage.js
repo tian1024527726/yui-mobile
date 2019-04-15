@@ -4,7 +4,7 @@ import { Title, Label, List, Cell } from '@ui'
 const ListItem = List.Item;
 const NavLink = (props) => {
   return (
-    <Link to={props.to} style={{paddingLeft:'1rem',position:'absolute',top:'0',left:'0',width:'100%',height:'100%',lineHeight:'2.5rem',color:'#7a7a7a',fontSize:'.875rem'}}>
+    <Link to={`/yui.mobile/${props.to}`} style={{paddingLeft:'1rem',position:'absolute',top:'0',left:'0',width:'100%',height:'100%',lineHeight:'2.5rem',color:'#7a7a7a',fontSize:'.875rem'}}>
     {props.children}
     </Link>
   )
