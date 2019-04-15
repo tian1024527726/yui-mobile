@@ -1,9 +1,9 @@
 {
   "name": "yzt-rui",
-  "version": "0.4.7",
+  "version": "0.4.9",
   "description": "OneConnect UI framework powered by React.js for mobile & tablet",
   "author": "github/tian1024527726",
-  "main": "dist/yzt-rui.min.js",
+  "main": "lib/index.js",
   "scripts": {
     "analyze": "cross-env NODE_ENV=production node scripts/build.js --analyze",
     "start": "cross-env NODE_ENV=development node scripts/dev-server.js",

@@ -14,10 +14,18 @@ class Pull extends React.Component {
       beforeRefresh: '释放即可刷新...',
       refreshing: '加载中...'
     }
+    let pullingUp = '加载更多';
+    let noMoreData = '没有更多记录';
 
+    if ('pullingUpMsg' in props) {
+      pullingUp = props.pullingUp;
+    }
+    if ('bottomMsg' in props) {
+      noMoreData = props.bottomMsg;
+    }
     const pullUpState = {
-      pullingUp: this.hasPropValue(props.pullingUpMsg) ? props.pullingUpMsg : '加载更多',
-      noMoreData: this.hasPropValue(props.bottomMsg) ? props.bottomMsg : '没有更多记录'
+      pullingUp,
+      noMoreData
     };
 
     this.state = {
@@ -36,15 +44,6 @@ class Pull extends React.Component {
   }
   scrollToTop = () => {
     if (this.scroll) this.scroll.scrollTo(0, 0);
-  }
-  hasPropValue = (item) => {
-    let flag;
-    if (item === undefined || item === true || item === null) {
-      flag = false;
-    } else {
-      flag = true;
-    }
-    return flag
   }
   componentDidMount() {
     this.scroll = this.initBScroll(this.props);
@@ -199,9 +198,18 @@ class Pull extends React.Component {
         this.scroll.scrollTo(x, y);
       }
 
+      let pullingUp = '加载更多';
+      let noMoreData = '没有更多记录';
+
+      if ('pullingUpMsg' in nextProps) {
+        pullingUp = nextProps.pullingUp;
+      }
+      if ('bottomMsg' in nextProps) {
+        noMoreData = nextProps.bottomMsg;
+      }
       const pullUpState = {
-        pullingUp: this.hasPropValue(nextProps.pullingUpMsg) ? nextProps.pullingUpMsg : '加载更多',
-        noMoreData: this.hasPropValue(nextProps.bottomMsg) ? nextProps.bottomMsg : '没有更多记录'
+        pullingUp,
+        noMoreData
       };
       this.setState({
         pullUpState: pullUpState
@@ -287,7 +295,7 @@ class Pull extends React.Component {
     const pullCls = classNames('pull', 'scroll-wrapper', className)
 
     return (
-      <div ref='scroll' className={pullCls} style={{ height: `${containerHeight}` }}>
+      <div ref='scroll' className={pullCls} style={{ height: containerHeight }}>
         <div className='scroll-content'>
           {pullContent}
           {canPullDown && this.renderTopPocket()}
@@ -301,7 +309,7 @@ class Pull extends React.Component {
 Pull.propTypes = {
   canPullDown: PropTypes.bool,
   canPullUp: PropTypes.bool,
-  containerHeight: PropTypes.string,
+  containerHeight: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   finishPullDown: PropTypes.func,
   finishPullUp: PropTypes.func,
   showScrollBar: PropTypes.bool,
@@ -309,9 +317,9 @@ Pull.propTypes = {
   preventTap: PropTypes.bool,
   noMoreData: PropTypes.bool,
   bounceTime: PropTypes.number,
-  pullContent: PropTypes.node,
+  pullContent: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
   bottomMsg: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
-  pullingUpMsg: PropTypes.string
+  pullingUpMsg: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
 }
 
 export default Pull;

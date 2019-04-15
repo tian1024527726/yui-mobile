@@ -153,7 +153,7 @@ ReactDom(<PullDemo/>,mountNode)
 | noMoreData | boolean | false | | 是否没有更多数据 |
 | bounceTime | number | 300 | | 设置滑动动画结束事件 |
 | pullContent | ReactNode | | | 容器内容 |
-| bottomMsg | string | 没有更多记录 | | 内有更多内容时底部出现的描述文字 |
-| pullingUpMsg | string | 加载更多 | | 上拉加载时底部出现的描述文字 |
+| bottomMsg | string &#124; ReactNode | 没有更多记录 | | 内有更多内容时底部出现的描述文字 |
+| pullingUpMsg | string &#124; ReactNode | 加载更多 | | 上拉加载时底部出现的描述文字 |
 
 

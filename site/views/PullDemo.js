@@ -9,7 +9,7 @@ class PullDemo extends React.Component {
     this.state = {
       data: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, , 1, 1],
       noMoreData: false,
-      bottomMsg:'<div>1212</div>',
+      bottomMsg: <div style={{fontSize:'1.5rem',color: '#000'}}>1212</div>,
       canPullUp: true,
       canPullDown: true
     }
@@ -45,14 +45,6 @@ class PullDemo extends React.Component {
           <Button
             onClick={() => {
               this.setState({
-                bottomMsg: '没有更多数据了'
-              })
-            }}
-            size='small'
-          >改变bottomMsg</Button>
-          <Button
-            onClick={() => {
-              this.setState({
                 canPullDown: !this.state.canPullDown
               })
             }}
@@ -73,7 +65,7 @@ class PullDemo extends React.Component {
             canPullDown={canPullDown}
             canPullUp={canPullUp}
             bottomMsg={bottomMsg}
-            //containerHeight={'600px'}
+            containerHeight={500}
             finishPullDown={() => {
               return new Promise((resolve, reject) => {
                 console.log('刷新中'); setTimeout(() => {
