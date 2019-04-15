@@ -6915,6 +6915,16 @@ yargs@~3.10.0:
     decamelize "^1.0.0"
     window-size "0.1.0"
 
+yzt-rui@^0.4.8:
+  version "0.4.8"
+  resolved "http://registry.npm.taobao.org/yzt-rui/download/yzt-rui-0.4.8.tgz#e8838af6c3c87cbfefcb4eecdc301ad56e5b2924"
+  dependencies:
+    better-scroll "^1.8.4"
+    rmc-dialog "^1.1.0"
+    rmc-feedback "^2.0.0"
+    rmc-notification "^1.0.0"
+    yzt.css.alpha "^0.1.8"
+
 yzt.css.alpha@^0.1.8:
   version "0.1.8"
   resolved "https://registry.npmjs.org/yzt.css.alpha/-/yzt.css.alpha-0.1.8.tgz#db352a86600b03075d90cc9c2ea8cd91fab28b2c"

@@ -14,10 +14,12 @@ class Pull extends React.Component {
       beforeRefresh: '释放即可刷新...',
       refreshing: '加载中...'
     }
-    this.pullUpState = {
-      pullingUp: props.pullingUpMsg || '加载更多',
-      noMoreData: props.bottomMsg || '没有更多记录'
-    }
+
+    const pullUpState = {
+      pullingUp: this.hasPropValue(props.pullingUpMsg) ? props.pullingUpMsg : '加载更多',
+      noMoreData: this.hasPropValue(props.bottomMsg) ? props.bottomMsg : '没有更多记录'
+    };
+
     this.state = {
       pullDownState: this.pullDownState['pullingDown'],
       showPullTop: false,
@@ -28,19 +30,29 @@ class Pull extends React.Component {
       bottomLeftRotate: -180,
       bottomRightRotate: -160,
       bottomShowLoadingRight: true,
-      bottomRotating: false
+      bottomRotating: false,
+      pullUpState,
     }
   }
   scrollToTop = () => {
-    if(this.scroll){
-      this.scroll.scrollTo(0,0);
+    if (this.scroll) this.scroll.scrollTo(0, 0);
+  }
+  hasPropValue = (item) => {
+    let flag;
+    if (item === undefined || item === true || item === null) {
+      flag = false;
+    } else {
+      flag = true;
     }
+    return flag
   }
   componentDidMount() {
+    this.scroll = this.initBScroll(this.props);
+  }
+  initBScroll = (options) => {
     const {
-      canPullDown, canPullUp, showScrollBar, preventClick, preventTap, finishPullDown, finishPullUp, bounceTime
-    } = this.props;
-
+      canPullUp, canPullDown, showScrollBar, preventClick, preventTap, finishPullDown, finishPullUp, bounceTime
+    } = options;
     const pullUpLoad = {
       threshold: 0
     }
@@ -48,7 +60,7 @@ class Pull extends React.Component {
       threshold: 40,
       stop: 40
     }
-    this.scroll = new BScroll(this.refs.scroll, {
+    let scroll = new BScroll(this.refs.scroll, {
       //探针作用，实时监测滚动位置
       probeType: 3,
       bounceTime: bounceTime || 300,
@@ -61,7 +73,7 @@ class Pull extends React.Component {
 
     const handlePullDown = (e) => {
       //记录最大的scrollY的值
-      const maxScrollY = this.scroll.maxScrollY;
+      const maxScrollY = scroll.maxScrollY;
 
       let topLeftRotate, topRightRotate, topShowLoadingRight;
       if (e.y >= 0 && e.y < pullDownRefresh.threshold) {
@@ -101,17 +113,17 @@ class Pull extends React.Component {
       }
     }
 
-    this.scroll.on('beforeScrollStart', (e) => {
-      if (!canPullDown) return false;
+    scroll.on('beforeScrollStart', (e) => {
+      if (!this.props.canPullDown) return false;
       //注册scroll事件
-      this.scroll.on('scroll', handlePullDown)
+      scroll.on('scroll', handlePullDown)
     })
 
-    this.scroll.on('touchEnd', (e) => {
-      if (!canPullDown) return false;
+    scroll.on('touchEnd', (e) => {
+      if (!this.props.canPullDown) return false;
 
       //移除scroll事件
-      this.scroll.off('scroll', handlePullDown);
+      scroll.off('scroll', handlePullDown);
 
       if (e.y >= pullDownRefresh.threshold) {
         this.setState({
@@ -120,10 +132,10 @@ class Pull extends React.Component {
       }
     })
 
-    this.scroll.on('pullingUp', async (e) => {
-      if (!canPullUp || this.props.noMoreData || !finishPullUp) {
-        this.scroll.finishPullUp();
-        this.scroll.refresh();
+    scroll.on('pullingUp', async (e) => {
+      if (!this.props.canPullUp || this.props.noMoreData || !finishPullUp) {
+        scroll.finishPullUp();
+        scroll.refresh();
         return false
       };
 
@@ -131,8 +143,8 @@ class Pull extends React.Component {
         bottomRotating: true,
       })
       await finishPullUp();
-      this.scroll.finishPullUp();
-      this.scroll.refresh();
+      scroll.finishPullUp();
+      scroll.refresh();
 
       if (this.isUnMounted) return false;
       this.setState({
@@ -140,10 +152,10 @@ class Pull extends React.Component {
       })
     })
 
-    this.scroll.on('pullingDown', async (e) => {
-      if (!canPullDown) {
-        this.scroll.finishPullDown();
-        this.scroll.refresh();
+    scroll.on('pullingDown', async (e) => {
+      if (!this.props.canPullDown) {
+        scroll.finishPullDown();
+        scroll.refresh();
         return false;
       }
 
@@ -153,12 +165,12 @@ class Pull extends React.Component {
         topRightRotate: (360 / pullDownRefresh.threshold) * (Math.abs(pullDownRefresh.threshold / 2 - 5))
       })
       finishPullDown && await finishPullDown();
-      this.scroll.finishPullDown();
-      this.scroll.refresh();
+      scroll.finishPullDown();
+      scroll.refresh();
     })
 
-    this.scroll.on('scrollEnd', (e) => {
-      const maxScrollY = this.scroll.maxScrollY;
+    scroll.on('scrollEnd', (e) => {
+      const maxScrollY = scroll.maxScrollY;
       //回到初始位置初始化状态
       if (e.y == 0) {
 
@@ -171,13 +183,31 @@ class Pull extends React.Component {
 
       }
     })
+
+    return scroll;
   }
-  componentWillReceiveProps() {
-    if(this.scroll){
+  componentWillReceiveProps(nextProps) {
+    if (this.scroll) {
       window.scroll = this.scroll
       this.scroll.refresh();
+
+      if (this.props.canPullDown !== nextProps.canPullDown || this.props.canPullUp !== nextProps.canPullUp) {
+        const x = this.scroll.x;
+        const y = this.scroll.y;
+        this.scroll.destroy();
+        this.scroll = this.initBScroll(nextProps);
+        this.scroll.scrollTo(x, y);
+      }
+
+      const pullUpState = {
+        pullingUp: this.hasPropValue(nextProps.pullingUpMsg) ? nextProps.pullingUpMsg : '加载更多',
+        noMoreData: this.hasPropValue(nextProps.bottomMsg) ? nextProps.bottomMsg : '没有更多记录'
+      };
+      this.setState({
+        pullUpState: pullUpState
+      })
     }
-   }
+  }
   componentWillUnmount() {
     this.isUnMounted = true;
   }
@@ -209,7 +239,7 @@ class Pull extends React.Component {
           </div>
         </div>}
         <div className='pull-caption'>
-          {(this.props.noMoreData || !this.props.finishPullUp) ? this.pullUpState['noMoreData'] : this.pullUpState['pullingUp']}
+          {(this.props.noMoreData || !this.props.finishPullUp) ? this.state.pullUpState['noMoreData'] : this.state.pullUpState['pullingUp']}
         </div>
       </div>
     )
@@ -280,7 +310,7 @@ Pull.propTypes = {
   noMoreData: PropTypes.bool,
   bounceTime: PropTypes.number,
   pullContent: PropTypes.node,
-  bottomMsg: PropTypes.string,
+  bottomMsg: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
   pullingUpMsg: PropTypes.string
 }
 

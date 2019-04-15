@@ -30,7 +30,7 @@ module.exports = merge(baseWebpackConfig, {
   output: {
     path: config.paths.dist,
     publicPath: '/dist/',
-    filename: 'yzt.rui.min.js',
+    filename: 'yzt-rui.min.js',
     library: 'iview',
     libraryTarget: 'umd',
     umdNamedDefine: true
@@ -53,7 +53,7 @@ module.exports = merge(baseWebpackConfig, {
       }
     }),
     // extract css into its own file
-    new ExtractTextPlugin(utils.assetsPath('yzt.rui.min.css')),
+    new ExtractTextPlugin(utils.assetsPath('yzt-rui.min.css')),
     new OptimizeCSSPlugin({
       cssProcessorOptions: {
         safe: true

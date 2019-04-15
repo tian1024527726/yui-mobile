@@ -1,14 +1,17 @@
 import React from 'react';
 import Header from '@site/layouts/AppHeader'
-import { Pull, Cell, List, Title } from '@ui';
+import { Pull, Cell, List, Title, Button } from '@ui';
 
 class PullDemo extends React.Component {
   constructor(props) {
     super(props)
     this.isUnMounted = false;
     this.state = {
-      data: [1, 1, 1, 1, 1, 1, 1,1,1,1,1,1,1,1,1,1,,1,1],
-      noMoreData: false
+      data: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, , 1, 1],
+      noMoreData: false,
+      bottomMsg:'<div>1212</div>',
+      canPullUp: true,
+      canPullDown: true
     }
   }
 
@@ -28,28 +31,55 @@ class PullDemo extends React.Component {
       </List>
     )
   }
-  componentDidMount(){}
+  componentDidMount() { }
   componentWillUnmount() {
     this.isUnMounted = true;
   }
 
   render() {
-    const { noMoreData } = this.state
+    const { noMoreData, bottomMsg, canPullDown, canPullUp } = this.state
     return (
       <div className='pullPage'>
         <Header></Header>
+        <Button.Group style={{ height: '3rem' }}>
+          <Button
+            onClick={() => {
+              this.setState({
+                bottomMsg: '没有更多数据了'
+              })
+            }}
+            size='small'
+          >改变bottomMsg</Button>
+          <Button
+            onClick={() => {
+              this.setState({
+                canPullDown: !this.state.canPullDown
+              })
+            }}
+            size='small'
+          >切换canPullDown</Button>
+          <Button
+            onClick={() => {
+              this.setState({
+                canPullUp: !this.state.canPullUp
+              })
+            }}
+            size='small'
+          >切换canPullUp</Button>
+        </Button.Group>
         <div className='pullScroll'>
           <Pull
             ref={(node) => window.pull = node}
-            canPullDown={true}
-            canPullUp={true}
+            canPullDown={canPullDown}
+            canPullUp={canPullUp}
+            bottomMsg={bottomMsg}
             //containerHeight={'600px'}
             finishPullDown={() => {
               return new Promise((resolve, reject) => {
                 console.log('刷新中'); setTimeout(() => {
                   if (this.isUnMounted) return false;
                   this.setState({
-                    data: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+                    data: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
                   }, resolve)
                 }, 1000)
               })
@@ -58,11 +88,12 @@ class PullDemo extends React.Component {
               return new Promise((resolve, reject) => {
                 console.log('加载更多中')
                 setTimeout(() => {
-                  const data = [].concat(this.state.data,[1,1,1,1])
+                  const data = [].concat(this.state.data, [1, 1, 1, 1])
                   console.log(data)
                   if (this.isUnMounted) return false;
                   this.setState({
-                    data: data
+                    data: data,
+                    noMoreData: true,
                   }, resolve)
                 }, 1000)
               })
