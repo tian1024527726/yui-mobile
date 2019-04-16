@@ -1,6 +1,6 @@
 # 标签页 Tabs
 
-[demo页面](https://yyb323.com/yui.mobile/#/tabs)
+[demo页面](https://yyb323.com/yui.mobile/tabs)
 
 ### 引入
 

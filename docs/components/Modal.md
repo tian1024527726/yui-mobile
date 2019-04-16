@@ -1,6 +1,6 @@
 # 模态框 Modal
 
-[demo页面](https://yyb323.com/yui.mobile/#/modal)
+[demo页面](https://yyb323.com/yui.mobile/modal)
 
 ### 引入
 
@@ -16,35 +16,6 @@ import { Modal } from 'yzt-rui';
 ```jsx
 <Modal visible={this.state.visible}>
   <Modal.Header title="标题" onClose={() => this.setState({ visible: false })} />
-  <Modal.Body>
-    模态框内容
-  </Modal.Body>
-</Modal>
-```
-
-###### 圆角
-```jsx
-<Modal shape="radius" visible={this.state.visible}>
-  <Modal.Header title="标题" onClose={() => this.setState({ visible: false })} />
-  <Modal.Body>
-    模态框内容
-  </Modal.Body>
-</Modal>
-```
-
-###### 点击遮罩层关闭
-```jsx
-<Modal visible={this.state.visible} onMaskClick={() => this.setState({ visible: false })}>
-  <Modal.Header title="标题" />
-  <Modal.Body>
-    模态框内容
-  </Modal.Body>
-</Modal>
-```
-
-###### 无头部
-```jsx
-<Modal visible={this.state.visible} onMaskClick={() => this.setState({ visible: false })}>
   <Modal.Body>
     模态框内容
   </Modal.Body>
@@ -86,18 +57,31 @@ import { Modal } from 'yzt-rui';
 ```
 
 
-### API
+### Modal API
 
 | 属性 | 类型 | 默认值 | 可选值／参数 | 说明 |
 | :--- | :--- | :--- | :--- | :--- |
-| prefixCls | string | za-modal | | 类名前缀 |
+| prefixCls | string | ym-modal | | 类名前缀 |
 | className | string | 无 | | 追加类名 |
-| shape | string | 无 | `radius` | 形状 |
-| visible | boolean | false | | 是否显示 |
-| animationType | string | `fade` | `fade`, `door`, `flip`, `rotate`, `zoom`,`moveUp`, `moveDown`, `moveLeft`, `moveRight`,`slideUp`, `slideDown`, `slideLeft`, `slideRight` | 动画效果 |
-| animationDuration | number | 200 | | 动画执行时间 |
-| width | string &#124; number | `70%` | | 宽度 |
-| onMaskClick | <code>() => void</code> | noop | | 点击遮罩层时触发的回调函数 |
+| visible | bool | false | | 是否显示 |
+| wrapClassName | string | 无 | | 追加内容容器类名 |
+| transitionName | string | 无 | | 弹出框显示隐藏动画类名 |
+| maskTransitionName | string | 无 | | 遮罩层显示隐藏动画类名 |
+| mask | func | true | | 是否显示遮罩层 |
+| animated | func | true | | 是否有动画 |
+| transparent | bool | false | | 默认全屏高度/true时内容自适应渐隐渐现弹框 |
+| popup | bool | false | | 底部和定部弹框模式，默认底部弹起 |
+| animationType | string | `slide-up`, `slide-down` | `slide-up` | popup模式，默认是底部弹起 |
+| operation | bool | false |  | 设置footer的布局，true时是上下布局，false时左右布局 |
+| title | any |  |  | 弹框头部内容 |
+| footer | array | {text: string | ReactNode , onPress: func} |  | 弹框底部内容 |
+
+
+### Alert模式 API
+
+| 属性 | 类型 | 默认值 | 可选值／参数 | 说明 |
+| :--- | :--- | :--- | :--- | :--- |
+
 
 
 

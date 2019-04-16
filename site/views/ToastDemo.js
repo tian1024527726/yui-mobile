@@ -7,7 +7,7 @@ class ToastDemo extends React.Component{
     super(props)
   }
   showNotice = () => {
-    Toast.show(<div>登录超时，请稍后再试</div>,2,()=>{},true);
+    Toast.show(<div>登录超时，请稍后再试</div>,100,()=>{},true);
   }
   render(){
     return (

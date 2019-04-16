@@ -1,6 +1,6 @@
 # 标签 Tag
 
-[demo页面](https://yyb323.com/yui.mobile/#/tag)
+[demo页面](https://yyb323.com/yui.mobile/tag)
 
 ### 引入
 

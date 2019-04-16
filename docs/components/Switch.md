@@ -1,6 +1,6 @@
 # 开关 Switch
 
-[demo页面](https://yyb323.com/yui.mobile/#/switch)
+[demo页面](https://yyb323.com/yui.mobile/switch)
 
 ### 引入
 

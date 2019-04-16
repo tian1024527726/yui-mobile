@@ -1,6 +1,6 @@
 # 图标 Icon
 
-[demo页面](https://yyb323.com/yui.mobile/#/icon)
+[demo页面](https://yyb323.com/yui.mobile/icon)
 
 ### 引入
 

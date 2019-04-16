@@ -1,6 +1,6 @@
 # 复选框 Checkbox
 
-[demo页面](https://yyb323.com/yui.mobile/#/checkbox)
+[demo页面](https://yyb323.com/yui.mobile/checkbox)
 
 ### 引入
 

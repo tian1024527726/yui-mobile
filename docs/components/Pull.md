@@ -1,6 +1,6 @@
 # 上拉加载下拉刷新 Pull
 
-[demo页面](https://yyb323.com/yui.mobile/#/pull)
+[demo页面](https://yyb323.com/yui.mobile/pull)
 
 ### 引入
 

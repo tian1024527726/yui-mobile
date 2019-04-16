@@ -86,7 +86,7 @@ class HomePage extends React.Component{
             style={{border:0,position:'relative'}}
             renderItem={<Cell
             style={{paddingLeft:'1rem',height: '2.5rem'}}
-            title={<NavLink to='keyboard'>Keyboard 数据键盘</NavLink>}
+            title={<NavLink to='keyboard'>Keyboard 数字键盘</NavLink>}
             hasArrow={true}
             />}
             onClick={()=>{}}

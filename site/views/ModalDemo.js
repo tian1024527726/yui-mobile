@@ -144,7 +144,8 @@ class ModalPage extends React.Component {
         <Modal
           visible={this.state.showTopPopup}
           popup
-          animationType='slide-down'
+          // animationType='slide-down'
+          // transparent={true}
           onClose={() => { this.setState({ showTopPopup: false }) }}
         >
           <div style={{ width: '100%', height: '10rem', backgroundColor: '#fff' }}>

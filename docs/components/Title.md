@@ -1,6 +1,6 @@
 # 标题 Title
 
-[demo页面](https://yyb323.com/yui.mobile/#/title)
+[demo页面](https://yyb323.com/yui.mobile/title)
 
 ### 引入
 

@@ -9,7 +9,7 @@ class PullDemo extends React.Component {
     this.state = {
       data: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, , 1, 1],
       noMoreData: false,
-      bottomMsg: <div style={{fontSize:'1.5rem',color: '#000'}}>1212</div>,
+      bottomMsg: <div style={{ fontSize: '1.5rem', color: '#000' }}>1212</div>,
       canPullUp: true,
       canPullDown: true
     }
@@ -64,8 +64,8 @@ class PullDemo extends React.Component {
             ref={(node) => window.pull = node}
             canPullDown={canPullDown}
             canPullUp={canPullUp}
-            bottomMsg={bottomMsg}
-            containerHeight={500}
+            // bottomMsg={bottomMsg}
+            // containerHeight={500}
             finishPullDown={() => {
               return new Promise((resolve, reject) => {
                 console.log('刷新中'); setTimeout(() => {

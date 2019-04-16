@@ -1,6 +1,6 @@
 # 按钮 Button
 
-[demo页面](https://yyb323.com/yui.mobile/#/button)
+[demo页面](https://yyb323.com/yui.mobile/button)
 
 ### 引入
 

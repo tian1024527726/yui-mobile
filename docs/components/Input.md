@@ -1,6 +1,6 @@
 # 文本框 Input
 
-[demo页面](https://yyb323.com/yui.mobile/#/input)
+[demo页面](https://yyb323.com/yui.mobile/input)
 
 ### 引入
 

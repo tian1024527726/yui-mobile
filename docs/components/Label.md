@@ -1,6 +1,6 @@
 # 文本 Label
 
-[demo页面](https://yyb323.com/yui.mobile/#/label)
+[demo页面](https://yyb323.com/yui.mobile/label)
 
 ### 引入
 

@@ -1,6 +1,6 @@
 # 链接 Link
 
-[demo页面](https://yyb323.com/yui.mobile/#/link)
+[demo页面](https://yyb323.com/yui.mobile/link)
 
 ### 引入
 

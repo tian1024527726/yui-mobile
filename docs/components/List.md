@@ -1,6 +1,6 @@
 # 列表 List
 
-[demo页面](https://yyb323.com/yui.mobile/#/list)
+[demo页面](https://yyb323.com/yui.mobile/list)
 
 ### 引入
 

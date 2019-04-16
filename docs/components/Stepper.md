@@ -1,6 +1,6 @@
 # 步进器 Stepper
 
-[demo页面](https://yyb323.com/yui.mobile/#/stepper)
+[demo页面](https://yyb323.com/yui.mobile/stepper)
 
 ### 引入
 

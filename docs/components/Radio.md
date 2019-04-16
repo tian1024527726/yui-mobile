@@ -1,6 +1,6 @@
 # 单选框 Radio
 
-[demo页面](https://yyb323.com/yui.mobile/#/radio)
+[demo页面](https://yyb323.com/yui.mobile/radio)
 
 ### 引入
 
