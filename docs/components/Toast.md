@@ -25,7 +25,7 @@ Toast.hide();
 
 | 属性 | 类型 | 默认值 | 可选值／参数 | 说明 |
 | :--- | :--- | :--- | :--- | :--- |
-| show | func | | <code>(content:string | ReactNode, time:number, onClose: func, mask: bool)</code> | content内容, time显示时间, onClose隐藏时触发的函数, mask是否禁止点击屏幕 |
+| show | func | | <code>(content:string &#124; ReactNode, time:number, onClose: func, mask: bool)</code> | content内容, time显示时间, onClose隐藏时触发的函数, mask是否禁止点击屏幕 |
 | hide | func | | | 隐藏toast |
 
 

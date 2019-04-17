@@ -14,20 +14,16 @@ import { Modal } from 'yzt-rui';
 
 ###### 普通
 ```jsx
-<Modal visible={this.state.visible}>
-  <Modal.Header title="标题" onClose={() => this.setState({ visible: false })} />
-  <Modal.Body>
-    模态框内容
-  </Modal.Body>
-</Modal>
-```
-
-###### 动画效果
-```jsx
-<Modal visible={this.state.visible} animationType="rotate" onMaskClick={() => this.setState({ visible: false })}>
-  <Modal.Body>
-    模态框内容
-  </Modal.Body>
+<Modal
+  visible={this.state.showStatus}
+  popup
+  mask={false}
+  animationType='slide-up'
+  onClose={() => { this.setState({ showStatus: false }) }}
+>
+  <div style={{ width: '100%', height: '10rem', backgroundColor: '#fff' }}>
+    Hello World!!!!!下方弹出
+  </div>
 </Modal>
 ```
 
@@ -36,25 +32,45 @@ import { Modal } from 'yzt-rui';
 ###### 警告框
 ```jsx
 <Alert
-  shape="radius"
-  visible={this.state.visible}
-  title="警告"
-  message="这里是警告信息"
-  onCancel={() => this.setState({ visible: false })}
-  />
+  visible={this.state.ZoomInDemo}
+  footer={[{ text: '关闭',  onPress: () => { this.setState({ ZoomInDemo: false }) } }, { text: '拨打咨询电话', onPress: () => { alert('拨打电话') } }]}
+>
+  <div>
+    抱歉，被保险人的健康状况不符合该产品投保的要求，如需购买相关保障请拨打咨询电话 95511-4-4。
+  </div>
+</Alert>
+
+<Alert
+  visible={this.state.FadeInDemo}
+  transitionName='ym-fade'
+  footer={[{ text: '关闭', onPress: () => { this.setState({ FadeInDemo: false }) } }, { text: '拨打咨询电话', onPress: () => { alert('拨打电话') } }]}
+>
+  <div>
+    抱歉，被保险人的健康状况不符合该产品投保的要求，如需购买相关保障请拨打咨询电话 95511-4-4。
+  </div>
+</Alert>
+
+<Alert
+  visible={this.state.ZoomInDemo}
+  footer={[{ text: '知道了', onPress: () => { this.setState({ ZoomInDemo: false }) } }]}
+>
+  <div>
+    社保指的是海亿账通互联网科技有限公司运作的金融亿超市作为交易服务平台进行信息发布，不对任何投资人及/或任何交易提供任何担保。
+  </div>
+</Alert>
+
+<Alert
+  transitionName='ym-fade'
+  visible={this.state.FadeInDemo}
+  footer={[{ text: '知道了', onPress: () => { this.setState({ FadeInDemo: false }) } }]}
+>
+  <div>
+    社保指的是海亿账通互联网科技有限公司运作的金融亿超市作为交易服务平台进行信息发布，不对任何投资人及/或任何交易提供任何担保。
+  </div>
+</Alert>
+
 ```
 
-###### 确认框
-```jsx
-<Confirm
-  shape="radius"
-  visible={this.state.visible}
-  title="确认信息"
-  message="你确定要这样做吗？"
-  onOk={() => alert(`click ok`)}
-  onCancel={() => this.setState({ visible: false })}
-  />
-```
 
 
 ### Modal API
@@ -64,8 +80,9 @@ import { Modal } from 'yzt-rui';
 | prefixCls | string | ym-modal | | 类名前缀 |
 | className | string | 无 | | 追加类名 |
 | visible | bool | false | | 是否显示 |
+| style | object | | | 样式 |
 | wrapClassName | string | 无 | | 追加内容容器类名 |
-| transitionName | string | 无 | | 弹出框显示隐藏动画类名 |
+| transitionName | string | `ym-zoom`, `ym-fade`, `ym-slide-up`, `ym-slide-down` | | 1、快速显示2、渐隐渐现3、底部弹出4、顶部弹出 |
 | maskTransitionName | string | 无 | | 遮罩层显示隐藏动画类名 |
 | mask | func | true | | 是否显示遮罩层 |
 | animated | func | true | | 是否有动画 |
@@ -74,13 +91,19 @@ import { Modal } from 'yzt-rui';
 | animationType | string | `slide-up`, `slide-down` | `slide-up` | popup模式，默认是底部弹起 |
 | operation | bool | false |  | 设置footer的布局，true时是上下布局，false时左右布局 |
 | title | any |  |  | 弹框头部内容 |
-| footer | array | {text: string | ReactNode , onPress: func} |  | 弹框底部内容 |
+| footer | array | {text: string &#124; ReactNode , onPress: func} | | 弹框底部内容 |
 
 
 ### Alert模式 API
 
 | 属性 | 类型 | 默认值 | 可选值／参数 | 说明 |
 | :--- | :--- | :--- | :--- | :--- |
+| visible | bool | false | | 是否显示 |
+| style | object | | | 样式 |
+| title | any | | | 弹框头部内容 |
+| footer | array | {text: string &#124; ReactNode , onPress: func} | | 弹框底部内容 |
+| transitionName | string | `ym-zoom`, `ym-fade` | | 1、快速显示2、渐隐渐现 |
+
 
 
 
