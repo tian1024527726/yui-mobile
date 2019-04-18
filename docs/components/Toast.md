@@ -14,8 +14,8 @@ import { Toast } from 'yzt-rui';
 ```js
 // 开启
 Toast.show('提示内容');
-Toast.show('提示内容', 3000);
-Toast.show('提示内容', 3000, () => { console.log('onClose') }, true);
+Toast.show('提示内容', 3);
+Toast.show('提示内容', 3, () => { console.log('onClose') }, true);
 
 // 关闭
 Toast.hide();

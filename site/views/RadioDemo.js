@@ -35,13 +35,13 @@ class RadioDemo extends React.Component {
           <Radio value='2'>
             <span>普通赎回</span>
           </Radio>
-        </RadioGroup><br/>
+        </RadioGroup><br />
 
         单独的radio:
-          <Radio value='radio'
+          <Radio
           checked={checked}
           onChange={() => { this.setState({ checked: true }) }}
-        ></Radio><br/>
+        ></Radio><br />
         radio-group,block类型:
         <RadioGroup name='a' defaultValue='1' onChange={(value) => { console.log(value) }} >
           <Radio value='1' type={'block'}>
@@ -50,7 +50,7 @@ class RadioDemo extends React.Component {
           <Radio value='2' type={'block'}>
             <span>普通赎回</span>
           </Radio>
-        </RadioGroup><br/>
+        </RadioGroup><br />
       </article>
     )
   }
