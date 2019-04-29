@@ -50,7 +50,7 @@ class Pull extends React.Component {
   }
   initBScroll = (options) => {
     const {
-      canPullUp, canPullDown, showScrollBar, preventClick, preventTap, finishPullDown, finishPullUp, bounceTime, scrollOption
+      canPullUp, canPullDown, showScrollBar, finishPullDown, finishPullUp, bounceTime, scrollOption
     } = options;
     const pullUpLoad = {
       threshold: 0
@@ -60,19 +60,17 @@ class Pull extends React.Component {
       stop: 40
     }
     let scroll = new BScroll(this.refs.scroll, {
-      //探针作用，实时监测滚动位置
+      // 探针作用，实时监测滚动位置
       probeType: 3,
       bounceTime: bounceTime || 300,
+      scrollbar: showScrollBar || false,
+      ...scrollOption,
       pullDownRefresh: canPullDown ? pullDownRefresh : false,
       pullUpLoad: canPullUp ? pullUpLoad : false,
-      scrollbar: showScrollBar || false,
-      click: preventClick || true,
-      tap: preventTap || true,
-      ...scrollOption
     });
 
     const handlePullDown = (e) => {
-      //记录最大的scrollY的值
+      // 记录最大的scrollY的值
       const maxScrollY = scroll.maxScrollY;
 
       let topLeftRotate, topRightRotate, topShowLoadingRight;
@@ -115,14 +113,14 @@ class Pull extends React.Component {
 
     scroll.on('beforeScrollStart', (e) => {
       if (!this.props.canPullDown) return false;
-      //注册scroll事件
+      // 注册scroll事件
       scroll.on('scroll', handlePullDown)
     })
 
     scroll.on('touchEnd', (e) => {
       if (!this.props.canPullDown) return false;
 
-      //移除scroll事件
+      // 移除scroll事件
       scroll.off('scroll', handlePullDown);
 
       if (e.y >= pullDownRefresh.threshold) {
@@ -133,22 +131,28 @@ class Pull extends React.Component {
     })
 
     scroll.on('pullingUp', async (e) => {
-      console.log(1)
       if (!this.props.canPullUp || this.props.noMoreData || !finishPullUp) {
-        scroll.finishPullUp();
-        scroll.refresh();
+        // 延时注册上拉加载事件
+        setTimeout(() => {
+          scroll.finishPullUp();
+        }, 0);
         return false
       };
 
+
+      // 显示底部loading
       this.setState({
         bottomRotating: true,
       })
+      // 执行上拉加载请求数据函数
       await finishPullUp();
+      // 重新注册上拉加载事件
       scroll.finishPullUp();
       scroll.refresh();
 
       if (this.isUnMounted) return false;
 
+      // 隐藏底部loading
       this.setState({
         bottomRotating: false
       })
@@ -172,7 +176,6 @@ class Pull extends React.Component {
     })
 
     scroll.on('scrollEnd', (e) => {
-      console.log('jishu')
       const maxScrollY = scroll.maxScrollY;
       //回到初始位置初始化状态
       if (e.y == 0) {
@@ -203,17 +206,17 @@ class Pull extends React.Component {
       }
       // 开启关闭下拉刷新功能
       if (this.props.canPullDown !== nextProps.canPullDown) {
-        if(nextProps.canPullDown){
+        if (nextProps.canPullDown) {
           this.scroll.openPullDown(pullDownRefresh);
-        }else{
+        } else {
           this.scroll.closePullDown();
         }
       }
       // 开启关闭上拉加载功能
       if (this.props.canPullUp !== nextProps.canPullUp) {
-        if(nextProps.canPullUp){
+        if (nextProps.canPullUp) {
           this.scroll.openPullUp(pullUpLoad);
-        }else{
+        } else {
           this.scroll.closePullUp();
         }
       }
@@ -333,8 +336,6 @@ Pull.propTypes = {
   finishPullDown: PropTypes.func,
   finishPullUp: PropTypes.func,
   showScrollBar: PropTypes.bool,
-  preventClick: PropTypes.bool,
-  preventTap: PropTypes.bool,
   noMoreData: PropTypes.bool,
   bounceTime: PropTypes.number,
   pullContent: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),

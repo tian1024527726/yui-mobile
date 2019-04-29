@@ -1,8 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
-import createHistory from 'history/createBrowserHistory'
-const history = createHistory();
+const history = require("history").createBrowserHistory()
+
 
 class Header extends React.Component {
   constructor() {

@@ -4,10 +4,9 @@ import 'babel-polyfill';
 
 import React from 'react'
 import { render } from 'react-dom'
-import createHistory from 'history/createBrowserHistory'
 import AppContainer from './app'
 
-const history = createHistory()
+const history = require("history").createBrowserHistory()
 const MOUNT_NODE = document.getElementById('app')
 
 render(

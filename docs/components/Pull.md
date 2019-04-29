@@ -146,8 +146,6 @@ ReactDom(<PullDemo/>,mountNode)
 | canPullUp | boolean | false |  | 是否允许上拉 |
 | containerHeight | string | 父盒子高度 |  | 容器高度 |
 | showScrollBar | boolean | false | | 是否展示右边的滚动条 |
-| preventClick | boolean | true | | 是否阻止click事件 |
-| preventTap | boolean | true | | 是否阻止tap事件 |
 | finishPullDown | func | | | 触发下拉刷新事件执行函数，需返回promise对象 |
 | finishPullUp | func | | | 触发上拉加载事件执行函数，需返回promise对象 |
 | noMoreData | boolean | false | | 是否没有更多数据 |
@@ -155,6 +153,10 @@ ReactDom(<PullDemo/>,mountNode)
 | pullContent | ReactNode | | | 容器内容 |
 | bottomMsg | string &#124; ReactNode | 没有更多记录 | | 内有更多内容时底部出现的描述文字 |
 | pullingUpMsg | string &#124; ReactNode | 加载更多 | | 上拉加载时底部出现的描述文字 |
-| scrollOption | object |  | | better-scroll初始化参数 |
+| scrollOption | object |  | | better-scroll初始化参数,参考`https://ustbhuangyi.github.io/better-scroll/doc/zh-hans/api.html`文档 |
 
+### 组件方法
+
+#### scrollToTop
+使pull容器回到x=0,y=0的位置
 

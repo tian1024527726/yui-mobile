@@ -7,7 +7,7 @@ class PullDemo extends React.Component {
     super(props)
     this.isUnMounted = false;
     this.state = {
-      data: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, , 1, 1],
+      data: [],
       noMoreData: false,
       bottomMsg: <div style={{ fontSize: '1.5rem', color: '#000' }}>1212</div>,
       canPullUp: true,
@@ -17,23 +17,55 @@ class PullDemo extends React.Component {
 
   renderPullRefreshContent() {
     return (
-      <List style={{ backgroundColor: '#fff' }}>
-        {this.state.data.map((item, index) => {
-          return (
-            <List.Item key={index}
-              renderItem={<Cell
-                title={'产品合同'}
-                hasArrow={true}
-              />}
-            />
-          )
-        })}
-      </List>
+      <div>
+        <List style={{ backgroundColor: '#fff' }}>
+          {this.state.data.map((item, index) => {
+            return (
+              <List.Item key={index}
+                renderItem={<Cell
+                  title={'产品合同'}
+                  hasArrow={true}
+                />}
+              />
+            )
+          })}
+        </List>
+      </div>
     )
   }
-  componentDidMount() { }
+  componentDidMount() {
+    this.getData()
+  }
   componentWillUnmount() {
     this.isUnMounted = true;
+  }
+
+  getData = () => {
+    setTimeout(() => {
+      const data = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, , 1, 1]
+      console.log(data)
+      if (this.isUnMounted) return false;
+      this.setState({
+        data: data,
+        noMoreData: false,
+      },() => {
+        this.pull.scrollToTop()
+      })
+    }, 1000)
+  }
+
+  getMoreData = () => {
+    return new Promise((resolve, reject) => {
+      console.log('加载更多中')
+      setTimeout(() => {
+        const data = [].concat(this.state.data, [1, 1, 1, 1])
+        if (this.isUnMounted) return false;
+        this.setState({
+          data: data,
+          noMoreData: true,
+        }, resolve)
+      }, 1000)
+    })
   }
 
   render() {
@@ -58,12 +90,19 @@ class PullDemo extends React.Component {
             }}
             size='small'
           >切换canPullUp</Button>
+          <Button
+            onClick={this.getData}
+            size='small'
+          >get</Button>
         </Button.Group>
         <div className='pullScroll'>
           <Pull
-            ref={(node) => window.pull = node}
+            ref={node => this.pull = node}
             canPullDown={canPullDown}
             canPullUp={canPullUp}
+            // scrollOption={{
+            //   preventDefault: false
+            // }}
             // bottomMsg={bottomMsg}
             // containerHeight={500}
             finishPullDown={() => {
@@ -76,20 +115,7 @@ class PullDemo extends React.Component {
                 }, 1000)
               })
             }}
-            finishPullUp={() => {
-              return new Promise((resolve, reject) => {
-                console.log('加载更多中')
-                setTimeout(() => {
-                  const data = [].concat(this.state.data, [1, 1, 1, 1])
-                  console.log(data)
-                  if (this.isUnMounted) return false;
-                  this.setState({
-                    data: data,
-                    noMoreData: true,
-                  }, resolve)
-                }, 1000)
-              })
-            }}
+            finishPullUp={this.getMoreData}
             noMoreData={noMoreData}
             pullContent={this.renderPullRefreshContent()}
           />
