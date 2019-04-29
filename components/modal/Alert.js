@@ -37,7 +37,7 @@ class Alert extends React.Component {
 
 Alert.propTypes = {
   visible: PropTypes.bool,
-  title: PropTypes.string,
+  title: PropTypes.any,
   footer: PropTypes.array,
   style: PropTypes.object,
   transitionName: PropTypes.oneOf(['ym-zoom','ym-fade'])
