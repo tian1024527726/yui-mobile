@@ -16,7 +16,7 @@
     "test": "echo nothing"
   },
   "dependencies": {
-    "better-scroll": "^1.8.4",
+    "better-scroll": "^1.15.2",
     "rmc-dialog": "^1.1.0",
     "rmc-feedback": "^2.0.0",
     "rmc-notification": "^1.0.0",

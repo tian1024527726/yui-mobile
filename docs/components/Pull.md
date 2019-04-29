@@ -155,5 +155,6 @@ ReactDom(<PullDemo/>,mountNode)
 | pullContent | ReactNode | | | 容器内容 |
 | bottomMsg | string &#124; ReactNode | 没有更多记录 | | 内有更多内容时底部出现的描述文字 |
 | pullingUpMsg | string &#124; ReactNode | 加载更多 | | 上拉加载时底部出现的描述文字 |
+| scrollOption | object |  | | better-scroll初始化参数 |
 
 

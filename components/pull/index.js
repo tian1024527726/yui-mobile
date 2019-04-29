@@ -50,7 +50,7 @@ class Pull extends React.Component {
   }
   initBScroll = (options) => {
     const {
-      canPullUp, canPullDown, showScrollBar, preventClick, preventTap, finishPullDown, finishPullUp, bounceTime
+      canPullUp, canPullDown, showScrollBar, preventClick, preventTap, finishPullDown, finishPullUp, bounceTime, scrollOption
     } = options;
     const pullUpLoad = {
       threshold: 0
@@ -67,7 +67,8 @@ class Pull extends React.Component {
       pullUpLoad: canPullUp ? pullUpLoad : false,
       scrollbar: showScrollBar || false,
       click: preventClick || true,
-      tap: preventTap || true
+      tap: preventTap || true,
+      ...scrollOption
     });
 
     const handlePullDown = (e) => {
@@ -132,6 +133,7 @@ class Pull extends React.Component {
     })
 
     scroll.on('pullingUp', async (e) => {
+      console.log(1)
       if (!this.props.canPullUp || this.props.noMoreData || !finishPullUp) {
         scroll.finishPullUp();
         scroll.refresh();
@@ -146,6 +148,7 @@ class Pull extends React.Component {
       scroll.refresh();
 
       if (this.isUnMounted) return false;
+
       this.setState({
         bottomRotating: false
       })
@@ -169,6 +172,7 @@ class Pull extends React.Component {
     })
 
     scroll.on('scrollEnd', (e) => {
+      console.log('jishu')
       const maxScrollY = scroll.maxScrollY;
       //回到初始位置初始化状态
       if (e.y == 0) {
@@ -189,13 +193,29 @@ class Pull extends React.Component {
     if (this.scroll) {
       window.scroll = this.scroll
       this.scroll.refresh();
+      const pullUpLoad = {
+        threshold: 0
+      }
 
-      if (this.props.canPullDown !== nextProps.canPullDown || this.props.canPullUp !== nextProps.canPullUp) {
-        const x = this.scroll.x;
-        const y = this.scroll.y;
-        this.scroll.destroy();
-        this.scroll = this.initBScroll(nextProps);
-        this.scroll.scrollTo(x, y);
+      const pullDownRefresh = {
+        threshold: 40,
+        stop: 40
+      }
+      // 开启关闭下拉刷新功能
+      if (this.props.canPullDown !== nextProps.canPullDown) {
+        if(nextProps.canPullDown){
+          this.scroll.openPullDown(pullDownRefresh);
+        }else{
+          this.scroll.closePullDown();
+        }
+      }
+      // 开启关闭上拉加载功能
+      if (this.props.canPullUp !== nextProps.canPullUp) {
+        if(nextProps.canPullUp){
+          this.scroll.openPullUp(pullUpLoad);
+        }else{
+          this.scroll.closePullUp();
+        }
       }
 
       let pullingUp = '加载更多';
@@ -320,6 +340,7 @@ Pull.propTypes = {
   pullContent: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
   bottomMsg: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
   pullingUpMsg: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
+  scrollOption: PropTypes.object
 }
 
 export default Pull;
