@@ -22,6 +22,7 @@ class PullDemo extends React.Component {
           {this.state.data.map((item, index) => {
             return (
               <List.Item key={index}
+                onClick={() => { alert(1) }}
                 renderItem={<Cell
                   title={'产品合同'}
                   hasArrow={true}
@@ -48,13 +49,14 @@ class PullDemo extends React.Component {
       this.setState({
         data: data,
         noMoreData: false,
-      },() => {
+      }, () => {
         this.pull.scrollToTop()
       })
     }, 1000)
   }
 
   getMoreData = () => {
+    alert(1)
     return new Promise((resolve, reject) => {
       console.log('加载更多中')
       setTimeout(() => {
@@ -100,11 +102,6 @@ class PullDemo extends React.Component {
             ref={node => this.pull = node}
             canPullDown={canPullDown}
             canPullUp={canPullUp}
-            // scrollOption={{
-            //   preventDefault: false
-            // }}
-            // bottomMsg={bottomMsg}
-            // containerHeight={500}
             finishPullDown={() => {
               return new Promise((resolve, reject) => {
                 console.log('刷新中'); setTimeout(() => {

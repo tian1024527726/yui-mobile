@@ -10,8 +10,7 @@ class Button extends React.Component {
   static displayName = 'Button'
 
   static defaultProps = {
-    timeOut: 500,
-    delayTimeout: 1000
+    timeOut: 500
   }
   constructor(props) {
     super(props);
@@ -19,12 +18,14 @@ class Button extends React.Component {
     this.state = {
       clicked: false,
       timeOut: props.timeOut,
-      delayTimeout: props.delayTimeout
     }
   }
 
   handleClick = (e) => {
     const { timeOut } = this.state;
+    const { disabled, loading } = this.props;
+    if (disabled || loading) return false;
+
     this.setState({ clicked: true });
     clearTimeout(this.timeOut);
     this.timeOut = window.setTimeout(() => this.setState({ clicked: false }), timeOut);
@@ -36,18 +37,14 @@ class Button extends React.Component {
   }
 
   componentWillUnmount() {
-
     if (this.timeOut) {
       clearTimeout(this.timeOut)
-    }
-    if (this.delayTimeout) {
-      clearTimeout(this.delayTimeout)
     }
   }
 
   render() {
     const {
-      type, size, icon, className, state, children, loading, timeOut, delayTimeout, ...restProps
+      type, size, icon, className, state, children, loading, timeOut, ...restProps
     } = this.props;
 
     let sizeCls = '';
@@ -71,14 +68,14 @@ class Button extends React.Component {
     })
 
     return (
-        <ComponentProp
-          role="button"
-          className={buttonCls}
-          {...restProps}
-          onClick={this.handleClick}
-        >
-          {icon}{children}
-        </ComponentProp>
+      <ComponentProp
+        role="button"
+        className={buttonCls}
+        {...restProps}
+        onClick={this.handleClick}
+      >
+        {icon}{children}
+      </ComponentProp>
     );
   }
 }
@@ -92,8 +89,7 @@ Button.propTypes = {
   icon: PropTypes.node,
   loading: PropTypes.oneOfType([PropTypes.bool, PropTypes.object]),
   className: PropTypes.string,
-  timeOut: PropTypes.number,
-  delayTimeout: PropTypes.number
+  timeOut: PropTypes.number
 }
 
 export default Button

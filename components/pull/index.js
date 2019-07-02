@@ -64,6 +64,8 @@ class Pull extends React.Component {
       probeType: 3,
       bounceTime: bounceTime || 300,
       scrollbar: showScrollBar || false,
+      click: true,
+      tap: true,
       ...scrollOption,
       pullDownRefresh: canPullDown ? pullDownRefresh : false,
       pullUpLoad: canPullUp ? pullUpLoad : false,

@@ -5,7 +5,7 @@ import { Button, Title } from '@ui'
 class ButtonDemo extends React.Component {
   constructor(props){
     super(props)
-    let timer, countDown = '提交';
+    let countDown = '提交';
     this.state = {
       countDown: countDown,
       disabled: false
@@ -40,7 +40,7 @@ class ButtonDemo extends React.Component {
 
         尺寸:<Button size='small'>小尺寸</Button>&nbsp;
         <Button size='default'>默认尺寸</Button><hr/>
-        <Button.Group style={{width:'100%'}}><Button size='fullwidth' timeOut={4000} onClick={()=>{console.log(12)}}>底部全宽度按钮</Button></Button.Group><hr/>
+        <Button.Group style={{width:'100%'}}><Button size='fullwidth' onClick={()=>{console.log(12)}}>底部全宽度按钮</Button></Button.Group><hr/>
 
         颜色:<Button.Group style={{width:'45%'}}><Button type='primary' size='fullwidth'>主要操作normal</Button></Button.Group><br/>
         <Button.Group style={{width:'45%'}}><Button type='secondary' size='fullwidth'>次要操作normal</Button></Button.Group><hr/>
