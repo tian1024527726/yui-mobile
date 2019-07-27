@@ -6,7 +6,7 @@ import React from 'react'
 import { render } from 'react-dom'
 import AppContainer from './app'
 
-const history = require("history").createBrowserHistory()
+const history = require("history").createHashHistory()
 const MOUNT_NODE = document.getElementById('app')
 
 render(

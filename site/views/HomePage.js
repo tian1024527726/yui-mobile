@@ -4,7 +4,7 @@ import { Title, Label, List, Cell } from '@ui'
 const ListItem = List.Item;
 const NavLink = (props) => {
   return (
-    <Link to={`/yui.mobile/${props.to}`} style={{paddingLeft:'1rem',position:'absolute',top:'0',left:'0',width:'100%',height:'100%',lineHeight:'2.5rem',color:'#7a7a7a',fontSize:'.875rem'}}>
+    <Link to={`/${props.to}`} style={{paddingLeft:'1rem',position:'absolute',top:'0',left:'0',width:'100%',height:'100%',lineHeight:'2.5rem',color:'#7a7a7a',fontSize:'.875rem'}}>
     {props.children}
     </Link>
   )
@@ -28,7 +28,7 @@ class HomePage extends React.Component{
     const browserHistory = this.props.history;
     return (
       <div id='app-container'>
-        <Title size='3'>Yzt Rui</Title>
+        <Title size='3'>Yui Mobile</Title>
         <Label size='small' nodeType='p' to='grey-darker'  style={{paddingBottom:'1rem'}}>壹账通金融产品基础组件</Label>
         {/* 导航 Navigation */}
         <List style={{border:0}} >

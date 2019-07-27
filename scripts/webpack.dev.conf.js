@@ -28,7 +28,7 @@ const webpackConfig = merge(baseWebpackConfig, {
     }),
     // https://github.com/ampedandwired/html-webpack-plugin
     new HtmlWebpackPlugin({
-      title: 'Yzt Rui',
+      title: 'Yui Mobile',
       filename: 'index.html',
       template: 'site/index.html',
       inject: true,
